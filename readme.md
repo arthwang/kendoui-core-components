@@ -324,12 +324,12 @@ You can configurate Kendo widgets in templates in script or attribute value lite
 
   <script>
       var items = [
-        { template: "<label>SHAPE:</label>
+        { template: `<label>SHAPE:</label>
         <k-drop-down-list id='shape' 
                           data-text-field='text'
                           data-value-field='value'
                           data-source=dataShape 
-                          change=onShapeChange></k-drop-down-list>" },
+                          change=onShapeChange></k-drop-down-list>` },
       ... ...
   </script>
 ~~~
