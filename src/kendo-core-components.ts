@@ -176,7 +176,7 @@ $(document).ready(function () {
   function loadKendoTags() {
     $.ajax({
       type: 'GET',
-      url: '/assets/components/tags.json',
+      url: '../assets/components/tags.json',
       dataType: 'json',
       success: function (data) { kendoTags = data },
       async: false
