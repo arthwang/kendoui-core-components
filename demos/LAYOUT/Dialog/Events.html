@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Events demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src="/assets/console.js"></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+    <div class="box hidden-on-narrow">
+      <h4>Console log</h4>
+      <div class="console"></div>
+    </div>
+    <span id="show"
+          style="display:none"
+          class="k-button hidden-on-narrow">Click
+      here to open the dialog.</span>
+    <k-dialog id='dialog'
+              width='400px'
+              title='Software Update'
+              closable=true
+              modal=false
+              content='<p>A new version of <strong>Kendo UI</strong> is available. Would you like to download and install it now?<p>'
+              actions="[
+                    { text: 'Close', action: onCancel },
+                    { text: 'OK', primary: true, action: onOK }
+                  ]"
+              open='onOpen'
+              close='onClose'
+              show='onShow'
+              hide='onHide'></k-dialog>
+
+    <div class="responsive-message"></div>
+
+    <script>
+      var show = $("#show");
+      function onInitOpen(e) {
+        kendoConsole.log("event :: initOpen");
+      }
+
+      function onOpen(e) {
+        kendoConsole.log("event :: open");
+      }
+
+      function onShow(e) {
+        kendoConsole.log("event :: show");
+      }
+
+      function onHide(e) {
+        kendoConsole.log("event :: hide");
+      }
+
+      function onClose(e) {
+        show.fadeIn();
+        kendoConsole.log("event :: close");
+      }
+      function onCancel(e) {
+        kendoConsole.log("action :: cancel");
+      }
+
+      function onOK(e) {
+        kendoConsole.log("action :: OK");
+      }
+
+      show.click(function () {
+        $('#dialog').data('kendoDialog').open();
+        show.fadeOut();
+      });
+    </script>
+
+    <style>
+      #example {
+        min-height: 370px;
+      }
+
+      #example .box {
+        margin: 0;
+      }
+
+      #show {
+        text-align: center;
+        position: absolute;
+        white-space: nowrap;
+        padding: 1em;
+        cursor: pointer;
+        margin-top: 30px;
+      }
+    </style>
+  </div>
+</body>
+
+</html>

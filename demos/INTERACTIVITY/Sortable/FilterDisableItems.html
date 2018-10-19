@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Filter/Disable items</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+
+    <div class="demo-section k-content sortable-wrapper">
+      <h4>Disable</h4>
+      <p>Disabled items cannot be dragged but are
+        valid drop targets.</p>
+      <k-sortable id="sortable-disable"
+                  disabled='.disabled'>
+        <div class="sortable disabled">Disabled
+          item 1</div>
+        <div class="sortable disabled">Disabled
+          item 2</div>
+        <div class="sortable">Item 3</div>
+        <div class="sortable">Item 4</div>
+        <div class="sortable">Item 5</div>
+        <div class="sortable">Item 6</div>
+      </k-sortable>
+    </div>
+
+    <div class="demo-section k-content sortable-wrapper">
+      <h4>Filter</h4>
+      <p>Filtered items cannot be dragged and are
+        not valid drop targets.</p>
+      <k-sortable id="sortable-filter"
+                  filter='.sortable'>
+        <div class="not-sortable">Not sortable
+          item
+          1</div>
+        <div class="not-sortable">Not sortable
+          item
+          2</div>
+        <div class="sortable">Item 3</div>
+        <div class="sortable">Item 4</div>
+        <div class="sortable">Item 5</div>
+        <div class="sortable">Item 6</div>
+      </k-sortable>
+    </div>
+
+    <style>
+      #example {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      .sortable-wrapper {
+        width: 37%;
+        margin: 20px 40px;
+        padding: 20px;
+        float: left;
+      }
+
+      .sortable-wrapper p {
+        margin: 5px auto 20px;
+      }
+
+      .sortable,
+      .not-sortable {
+        padding: 10px 0;
+        margin: 1px 0;
+        width: 358px;
+        text-align: center;
+        color: #ffffff;
+      }
+
+      .sortable {
+        background-color: #51A0ED;
+        cursor: move;
+      }
+
+      .not-sortable {
+        background-color: #8E8E8E;
+        opacity: 0.5;
+      }
+
+      .disabled {
+        background-color: #FF0000;
+        opacity: 0.5;
+        cursor: auto;
+      }
+    </style>
+  </div>
+</body>
+
+</html>

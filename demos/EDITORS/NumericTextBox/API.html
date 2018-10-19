@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>API demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+
+    <div class="demo-section k-content">
+      <h4>Set value</h4>
+      <k-numeric-text-box id="numerictextbox"
+                          style="width: 100%"></k-numeric-text-box>
+    </div>
+
+    <div class="box wide">
+      <div class="box-col">
+        <h4>Get / Set Value</h4>
+        <ul class="options">
+          <li>
+            <button id="get"
+                    class="k-button">Get value</button>
+            or <button id="focus"
+                    class="k-button">Focus</button>
+          </li>
+          <li>
+            <input id="value"
+                   value="10"
+                   style="float:none" />
+            <button id="set"
+                    class="k-button">Set value</button>
+          </li>
+        </ul>
+      </div>
+      <div class="box-col">
+        <h4>Enable / Disable</h4>
+        <ul class="options">
+          <li>
+            <button id="enable"
+                    class="k-button">Enable</button>
+            <button id="disable"
+                    class="k-button">Disable</button>
+          </li>
+          <li>
+            <button id="readonly"
+                    class="k-button">Readonly</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      $(function () {
+        numerictextbox = $("#numerictextbox").data("kendoNumericTextBox");
+      });
+      var numerictextbox;
+
+      var setValue = function () {
+        numerictextbox.value($("#value").val());
+      };
+
+      $("#enable").click(function () {
+        numerictextbox.enable();
+      });
+
+      $("#disable").click(function () {
+        numerictextbox.enable(false);
+      });
+
+      $("#readonly").click(function () {
+        numerictextbox.readonly();
+      });
+
+      $("#focus").click(function () {
+        numerictextbox.focus();
+      });
+
+      $("#value").kendoNumericTextBox({
+        change: setValue
+      });
+
+      $("#set").click(setValue);
+
+      $("#get").click(function () {
+        alert(numerictextbox.value());
+      });
+    </script>
+  </div>
+
+
+</body>
+
+</html>

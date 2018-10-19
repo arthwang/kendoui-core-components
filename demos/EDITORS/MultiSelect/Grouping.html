@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Grouping demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+    <div class="demo-section k-content">
+      <h4>Search for shipping names</h4>
+      <k-multi-select id="customers"
+                      placeholder='Select customers...'
+                      data-text-field='ContactName'
+                      data-value-field='CustomerID'
+                      height=400
+                      data-source='{
+                          type: "odata",
+                          transport: {
+                            read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Customers"
+                          },
+                          group: { field: "Country" }
+                        }'></k-multi-select>
+    </div>
+  </div>
+
+</body>
+
+</html>

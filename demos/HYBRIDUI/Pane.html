@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Mobile pane demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.silver.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.mobile.all.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src="/out/kendo-core-components.js"></script>
+</head>
+
+<body>
+
+  <km-split-view id='main'>
+    <km-pane id='side-pane'>
+      <km-view>
+        <km-button href="#bar"
+                   data-target="main-pane">
+          Bar (main pane)
+        </km-button>
+        <km-button href="#baz"
+                   data-target="_top">
+          Baz (application)
+        </km-button>
+      </km-view>
+    </km-pane>
+
+    <km-pane id='main-pane'>
+      <km-view id='foo'>
+        Foo
+      </km-view>
+      <km-view id='bar'>
+        Bar
+      </km-view>
+    </km-pane>
+  </km-split-view>
+
+  <km-view id='baz'>
+    <km-button href="#main">
+      Go back to splitview
+    </km-button>
+  </km-view>
+
+  <script>
+    new kendo.mobile.Application();
+  </script>
+</body>
+
+</html>

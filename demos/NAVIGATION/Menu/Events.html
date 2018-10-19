@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Events demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src="/assets/console.js"></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+    <div class="demo-section k-content">
+      <h4>Menu</h4>
+      <k-menu id="menu"
+              select='onSelect'
+              open='onOpen'
+              close='onClose'
+              activate='onActivate'
+              deactivate='onDeactivate'>
+        <li>
+          First Item
+          <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+            <li>Sub Item 4</li>
+          </ul>
+        </li>
+        <li>
+          Second Item
+          <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+            <li>Sub Item 4</li>
+          </ul>
+        </li>
+        <li>
+          Third Item
+          <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+            <li>Sub Item 4</li>
+          </ul>
+        </li>
+      </k-menu>
+      <h4 style="padding-top: 2em;">Context Menu</h4>
+      <k-context-menu id="context-menu-events"
+                      target='#context-target'
+                      show-on='click'
+                      align-to-anchor=true
+                      select='onSelect'
+                      open='onOpen'
+                      close='onClose'
+                      activate='onActivate'
+                      deactivate='onDeactivate'>
+        <li>animation
+          <ul>
+            <li>slideIn</li>
+            <li>fadeIn</li>
+            <li>expand</li>
+          </ul>
+        </li>
+        <li>animation.close
+          <ul>
+            <li>animation.close.effects</li>
+            <li>animation.close.duration</li>
+          </ul>
+        </li>
+        <li>animation.open
+          <ul>
+            <li>animation.open.effects</li>
+            <li>animation.open.duration</li>
+          </ul>
+        </li>
+      </k-context-menu>
+      <p>A collection of <span id="context-target">Animation
+          (?)</span> objects, used to change
+        default animations. A value of false will
+        disable all animations in the widget.</p>
+    </div>
+
+    <div class="box">
+      <h4>Console log</h4>
+      <div class="console"></div>
+    </div>
+  </div>
+  <script>
+    function onOpen(e) {
+      kendoConsole.log("Opened: " + ($(e.item).children(".k-link").text() || "ContextMenu"));
+    }
+
+    function onClose(e) {
+      kendoConsole.log("Closed: " + ($(e.item).children(".k-link").text() || "ContextMenu"));
+    }
+
+    function onSelect(e) {
+      kendoConsole.log("Selected: " + $(e.item).children(".k-link").text());
+    }
+
+    function onActivate(e) {
+      kendoConsole.log("Activated: " + ($(e.item).children(".k-link").text() || "ContextMenu"));
+    }
+
+    function onDeactivate(e) {
+      kendoConsole.log("Deactivated: " + ($(e.item).children(".k-link").text() || "ContextMenu"));
+    }
+
+  </script>
+
+  <style>
+    .demo-section .box-col li {
+      margin-bottom: 0;
+    }
+
+    #context-target {
+      cursor: pointer;
+      color: red;
+    }
+
+    #context-target:hover {
+      text-decoration: underline;
+    }
+
+    #context-menu-events {
+      width: 120px;
+    }
+
+    #context-menu-events .k-item {
+      width: 100%;
+    }
+  </style>
+
+</body>
+
+</html>

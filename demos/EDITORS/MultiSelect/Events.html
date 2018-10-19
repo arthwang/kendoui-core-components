@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Events demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src="/assets/console.js"></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+    <div class="demo-section k-content">
+      <h4>Select Continents</h4>
+      <k-multi-select id="select"
+                      data-text-field='text'
+                      data-value-field='value'
+                      data-source=data
+                      filtering='onFiltering'
+                      deselect='onDeselect'
+                      select='onSelect'
+                      change='onChange'
+                      close='onClose'
+                      open='onOpen'></k-multi-select>
+    </div>
+    <script>
+      function onDataBound() {
+        if ("kendoConsole" in window) {
+          kendoConsole.log("event: dataBound");
+        }
+      }
+
+      function onOpen() {
+        if ("kendoConsole" in window) {
+          kendoConsole.log("event: open");
+        }
+      }
+
+      function onClose() {
+        if ("kendoConsole" in window) {
+          kendoConsole.log("event: close");
+        }
+      }
+
+      function onChange() {
+        if ("kendoConsole" in window) {
+          kendoConsole.log("event: change");
+        }
+      }
+
+      function onSelect(e) {
+        if ("kendoConsole" in window) {
+          var dataItem = e.dataItem;
+          kendoConsole.log("event :: select (" + dataItem.text + " : " + dataItem.value + ")");
+        }
+      };
+
+      function onDeselect(e) {
+        if ("kendoConsole" in window) {
+          var dataItem = e.dataItem;
+          kendoConsole.log("event :: deselect (" + dataItem.text + " : " + dataItem.value + ")");
+        }
+      };
+
+      function onFiltering(e) {
+        if ("kendoConsole" in window) {
+          kendoConsole.log("event :: filtering");
+        }
+      }
+
+      var data = [
+        { text: "Africa", value: "1" },
+        { text: "Europe", value: "2" },
+        { text: "Asia", value: "3" },
+        { text: "North America", value: "4" },
+        { text: "South America", value: "5" },
+        { text: "Antarctica", value: "6" },
+        { text: "Australia", value: "7" }
+      ];
+
+    </script>
+    <div class="box">
+      <h4>Console log</h4>
+      <div class="console"></div>
+    </div>
+  </div>
+
+</body>
+
+</html>

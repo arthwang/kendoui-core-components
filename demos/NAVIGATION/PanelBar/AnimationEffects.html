@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Animation effects demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+
+    <div class="box">
+      <h4>Animation Settings</h4>
+      <ul class="options">
+        <li>
+          <input id="expand"
+                 name="expand"
+                 type="checkbox"
+                 checked /> <label for="expand">expand
+            animation</label>
+          <ul id="expAnimation">
+            <li>
+              <label for="expandEffect">expand
+                effect</label>
+              <input type="text"
+                     id="expandEffect"
+                     name="expandEffect"
+                     value="fadeIn" />
+            </li>
+            <li>
+              <label for="expandDuration">expand
+                duration</label>
+              <input type="number"
+                     id="expandDuration"
+                     name="expandDuration"
+                     value=500>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <input id="collapse"
+                 name="collapse"
+                 type="checkbox"
+                 checked /> <label for="collapse">collapse
+            animation</label>
+          <ul id="clpAnimation">
+            <li>
+              <label for="collapseEffect">collapse
+                effect</label>
+              <input type="text"
+                     id="collapseEffect"
+                     name="collapseEffect"
+                     value="fadeOut" />
+            </li>
+            <li>
+              <label for="collapseDuration">collapse
+                duration</label>
+              <input type="number"
+                     id="collapseDuration"
+                     name="collapseDuration"
+                     value=500>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div id="pbContainer"
+         class="demo-section k-content">
+      <h4>Conversation History</h4>
+      <k-panel-bar id="panelbar"
+                   animation=getAnimation()
+                   data-source=data>
+      </k-panel-bar>
+    </div>
+    <script>
+      var data = [
+        {
+          text: "Today",
+          items: [
+            { text: "Jane King" },
+            { text: "Bob Fuller" },
+            { text: "Lynda Kallahan" },
+            { text: "Matt Sutnar" }
+          ]
+        },
+        {
+          text: "Yesterday",
+          items: [
+            { text: "Stewart " },
+            { text: "Jane King" },
+            { text: "Steven" },
+            { text: "Ken Stone" }
+          ]
+        },
+        {
+          text: "Wednesday, February 01, 2012",
+          items: [
+            { text: "Jane King" },
+            { text: "Lynda Kallahan" },
+            { text: "Todd " },
+            { text: "Bob Fuller" }
+          ]
+        },
+        {
+          text: "Tuesday, January 31, 2012",
+          items: [
+            { text: "Emily Davolio" },
+            { text: "Matt Sutnar" },
+            { text: "Bob Fuller" },
+            { text: "Jenn Heinlein" },
+          ]
+        },
+        {
+          text: "Monday, January 30, 2012",
+          items: [
+            { text: "Matt Sutnar" },
+            { text: "Joshua" },
+            { text: "Michael" },
+            { text: "Jenn Heinlein" },
+          ]
+        }
+      ];
+      function getAnimation() {
+        let animation = {};
+        if ($('#expand')[0].checked) {
+          animation.expand = {
+            effect: $('#expandEffect').val(),
+            duration: $('#expandDuration').val()
+          }
+        }
+        if ($('#collapse')[0].checked) {
+          animation.collapse = {
+            effect: $('#collapseEffect').val(),
+            duration: $('#collapseDuration').val()
+          }
+        }
+
+        return animation;
+      }
+      $(".options input").change(function () {
+        $('#expAnimation').prop('hidden', !$('#expand')[0].checked);
+        $('#clpAnimation').prop('hidden', !$('#collapse')[0].checked);
+        // seems not working
+        // $('#panelbar').data('kendoPanelBar').setOptions({ animation: getAnimation() });
+
+        //set up new widget
+        $('#panelbar').remove();
+        $('<k-panel-bar id="panelbar" data-source="data" animation=getAnimation()></k-panel-bar>').appendTo('#pbContainer');
+      });
+    </script>
+
+  </div>
+</body>
+
+</html>

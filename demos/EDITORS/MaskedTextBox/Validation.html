@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Validation demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+    <div class="demo-section k-content">
+      <k-validator id="employeeForm"
+                   novalidate="novalidate"
+                   rules='{
+                     validmask: function (input) {
+                       if (input.is("[data-validmask-msg]") && input.val() != "") {
+                         let maskedtextbox = input.data("kendoMaskedTextBox");
+                         return maskedtextbox.value().indexOf(maskedtextbox.options.promptChar) === -1
+                       }
+                       return true;
+                     }
+                    }'>
+        <ul id="fieldlist">
+          <li>
+            <label for="FirstName">First Name:</label>
+            <input type="text"
+                   class="k-textbox"
+                   name="FirstName"
+                   id="FirstName"
+                   required="required" />
+          </li>
+          <li>
+            <label for="LastName">Last Name:</label>
+            <input type="text"
+                   class="k-textbox"
+                   name="LastName"
+                   id="LastName"
+                   required="required" />
+          </li>
+          <li>
+            <label for="PhoneNumber">Phone
+              Number:</label>
+            <k-masked-text-box data-mask="(999) 000-0000"
+                               id="PhoneNumber"
+                               name="PhoneNumber"
+                               data-validmask-msg="Phone number is incomplete"
+                               required="required"
+                               style="width: 100%"></k-masked-text-box>
+            <span data-for='PhoneNumber'
+                  class='k-invalid-msg'></span>
+          </li>
+          <li class="actions">
+            <k-button type='button'
+                      icon="check"
+                      click='function (e) {
+                          let validator = $("#employeeForm").data("kendoValidator");
+                          if (validator.validate()) {
+                            alert("Employee Saved");
+                          }
+                        }'>Save</k-button>
+          </li>
+        </ul>
+      </k-validator>
+    </div>
+    <style>
+      #fieldlist {
+        margin: 0 0 -2em;
+        padding: 0;
+      }
+
+      #fieldlist li {
+        list-style: none;
+        padding-bottom: 2em;
+      }
+
+      #fieldlist label {
+        display: block;
+        padding-bottom: 1em;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 12px;
+        color: #444;
+      }
+
+      #fieldlist input {
+        width: 100%;
+      }
+
+      span.k-tooltip {
+        margin-top: 5px;
+        line-height: 1.7em;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: left;
+      }
+    </style>
+  </div>
+
+</body>
+
+</html>

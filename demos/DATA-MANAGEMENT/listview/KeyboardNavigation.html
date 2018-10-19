@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Keyboard navigation</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+
+    <div class="demo-section k-content wide">
+      <a class="k-button k-button-icontext k-add-button"
+         href="#"><span class="k-icon k-i-add"></span>Add
+        new record</a>
+      <k-list-view id="listView"
+                   data-source=dataSource
+                   selectable=true
+                   navigatable=true
+                   template='template'
+                   edit-template='editTemplate'></k-list-view>
+      <k-pager class="k-pager-wrap"
+               data-source=dataSource></k-pager>
+    </div>
+
+    <script type="text/x-kendo-tmpl"
+            id="template">
+        <div class="product-view k-widget">
+            <dl>
+                <dt>Product Name</dt>
+                <dd>#:ProductName#</dd>
+                <dt>Unit Price</dt>
+                <dd>#:kendo.toString(UnitPrice, "c")#</dd>
+                <dt>Units In Stock</dt>
+                <dd>#:UnitsInStock#</dd>
+                <dt>Discontinued</dt>
+                <dd>#:Discontinued#</dd>
+            </dl>
+            <div class="edit-buttons">
+                <a class="k-button k-edit-button" href="\\#"><span class="k-icon k-i-edit"></span></a>
+                <a class="k-button k-delete-button" href="\\#"><span class="k-icon k-i-delete"></span></a>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/x-kendo-tmpl"
+            id="editTemplate">
+        <div class="product-view k-widget">
+            <dl>
+                <dt>Product Name</dt>
+                <dd>
+                    <input type="text" data-bind="value:ProductName" name="ProductName" required="required" validationMessage="required" />
+                    <span data-for="ProductName" class="k-invalid-msg"></span>
+                </dd>
+                <dt>Unit Price</dt>
+                <dd>
+                    <input type="text" data-bind="value:UnitPrice" data-role="numerictextbox" data-type="number" name="UnitPrice" required="required" min="1" validationMessage="required" />
+                    <span data-for="UnitPrice" class="k-invalid-msg"></span>
+                </dd>
+                <dt>Units In Stock</dt>
+                <dd>
+                    <input type="text" data-bind="value:UnitsInStock" data-role="numerictextbox" name="UnitsInStock" required="required" data-type="number" min="0" validationMessage="required" />
+                    <span data-for="UnitsInStock" class="k-invalid-msg"></span>
+                </dd>
+                <dt>Discontinued</dt>
+                <dd><input type="checkbox" name="Discontinued" data-bind="checked:Discontinued"></dd>
+            </dl>
+            <div class="edit-buttons">
+                <a class="k-button k-update-button" href="\\#"><span class="k-icon k-i-check"></span></a>
+                <a class="k-button k-cancel-button" href="\\#"><span class="k-icon k-i-cancel"></span></a>
+            </div>
+        </div>
+    </script>
+
+    <script>
+      var crudServiceBaseUrl = "https://demos.telerik.com/kendo-ui/service",
+        dataSource = new kendo.data.DataSource({
+          transport: {
+            read: {
+              url: crudServiceBaseUrl + "/Products",
+              dataType: "jsonp"
+            },
+            update: {
+              url: crudServiceBaseUrl + "/Products/Update",
+              dataType: "jsonp"
+            },
+            destroy: {
+              url: crudServiceBaseUrl + "/Products/Destroy",
+              dataType: "jsonp"
+            },
+            create: {
+              url: crudServiceBaseUrl + "/Products/Create",
+              dataType: "jsonp"
+            },
+            parameterMap: function (options, operation) {
+              if (operation !== "read" && options.models) {
+                return { models: kendo.stringify(options.models) };
+              }
+            }
+          },
+          batch: true,
+          pageSize: 4,
+          schema: {
+            model: {
+              id: "ProductID",
+              fields: {
+                ProductID: { editable: false, nullable: true },
+                ProductName: "ProductName",
+                UnitPrice: { type: "number" },
+                Discontinued: { type: "boolean" },
+                UnitsInStock: { type: "number" }
+              }
+            }
+          }
+        });
+
+
+
+      $(".k-add-button").click(function (e) {
+        $('#listView').data('kendoListView').add();
+        e.preventDefault();
+      });
+
+      $(document.body).keydown(function (e) {
+        if (e.altKey && e.keyCode == 87) {
+          $("#listView").focus();
+        }
+      });
+
+    </script>
+
+    <div class="box wide">
+      <div class="box-col">
+        <h4>Focus</h4>
+        <ul class="keyboard-legend">
+          <li>
+            <span class="button-preview">
+              <span class="key-button leftAlign">Alt</span>
+              +
+              <span class="key-button">W</span>
+            </span>
+            <span class="button-descr">
+              Focus the ListView
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="box-col">
+        <h4>Supported keys and user actions</h4>
+        <ul class="keyboard-legend">
+          <li>
+            <span class="button-preview">
+              <span class="key-button">Right</span>
+            </span>
+            <span class="button-descr">
+              Goes to the next item (same as
+              Down)
+            </span>
+          </li>
+          <li>
+            <span class="button-preview">
+              <span class="key-button">Left</span>
+            </span>
+            <span class="button-descr">
+              Goes to the previous item (same as
+              Up)
+            </span>
+          </li>
+          <li>
+            <span class="button-preview">
+              <span class="key-button">Home</span>
+            </span>
+            <span class="button-descr">
+              Goes to the first item
+            </span>
+          </li>
+          <li>
+            <span class="button-preview">
+              <span class="key-button">End</span>
+            </span>
+            <span class="button-descr">
+              Goes to the last item
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="box-col">
+        <h4>&nbsp;</h4>
+        <ul class="keyboard-legend">
+          <li>
+            <span class="button-preview">
+              <span class="key-button">Enter</span>
+            </span>
+            <span class="button-descr">
+              Enter Edit mode or Apply changes
+            </span>
+          </li>
+          <li>
+            <span class="button-preview">
+              <span class="key-button">Esc</span>
+            </span>
+            <span class="button-descr">
+              Exit Edit mode and Cancel changes
+            </span>
+          </li>
+          <li>
+            <span class="button-preview">
+              <span class="key-button">Tab</span>
+            </span>
+            <span class="button-descr">
+              Tabs away from the ListView on the
+              next focusable page element
+            </span>
+          </li>
+          <li>
+            <span class="button-preview">
+              <span class="key-button leftAlign">Shift</span>
+              +
+              <span class="key-button">Tab</span>
+            </span>
+            <span class="button-descr">
+              Tabs away from the ListView on the
+              previous focusable page element
+            </span>
+          </li>
+          <li>
+            <span class="button-preview">
+              <span class="key-button">Space</span>
+            </span>
+            <span class="button-descr">
+              Select item
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+
+
+
+    <style>
+      .product-view {
+        float: left;
+        width: 50%;
+        height: 300px;
+        box-sizing: border-box;
+        border-top: 0;
+        position: relative;
+      }
+
+      .product-view:nth-child(even) {
+        border-left-width: 0;
+      }
+
+      .product-view dl {
+        margin: 10px 10px 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .product-view dt,
+      dd {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        line-height: 24px;
+        font-size: 18px;
+      }
+
+      .product-view dt {
+        font-size: 11px;
+        height: 16px;
+        line-height: 16px;
+        text-transform: uppercase;
+        opacity: 0.5;
+      }
+
+      .product-view dd {
+        height: 46px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+      }
+
+      .product-view dd .k-widget,
+      .product-view dd .k-textbox {
+        font-size: 14px;
+      }
+
+      #example .k-listview {
+        border-width: 1px 0 0;
+        padding: 0;
+        overflow: hidden;
+        min-height: 298px;
+      }
+
+      .edit-buttons {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: right;
+        padding: 5px;
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      .k-pager-wrap {
+        border-top: 0;
+      }
+
+      span.k-invalid-msg {
+        position: absolute;
+        margin-left: 6px;
+      }
+
+      .k-add-button {
+        margin-bottom: 2em;
+      }
+
+      @media only screen and (max-width : 620px) {
+
+        .product-view {
+          width: 100%;
+        }
+
+        .product-view:nth-child(even) {
+          border-left-width: 1px;
+        }
+      }
+    </style>
+  </div>
+</body>
+
+</html>

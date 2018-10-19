@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Animation effects </title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+
+    <div id="menuContainer"
+         class="demo-section k-content">
+      <k-menu id="menu"
+              data-source=data
+              animation=getAnimation()>
+      </k-menu>
+    </div>
+
+    <div class="box">
+      <h4>Animation Settings</h4>
+
+      <ul class="options">
+        <li>
+          <input id="open"
+                 name="open"
+                 type="checkbox"
+                 checked /> <label for="open">open
+            animation</label>
+          <ul id="openAnimation">
+            <li>
+              <label for="openEffect">open
+                effect</label>
+              <input type="text"
+                     id="openEffect"
+                     name="openEffect"
+                     value="fadeIn" />
+            </li>
+            <li>
+              <label for="openDuration">open
+                duration</label>
+              <input type="number"
+                     id="openDuration"
+                     name="openDuration"
+                     value=500>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <input id="close"
+                 name="close"
+                 type="checkbox"
+                 checked /> <label for="close">close
+            animation</label>
+          <ul id="closeAnimation">
+            <li>
+              <label for="closeEffect">close
+                effect</label>
+              <input type="text"
+                     id="closeEffect"
+                     name="closeEffect"
+                     value="fadeOut" />
+            </li>
+            <li>
+              <label for="closeDuration">close
+                duration</label>
+              <input type="number"
+                     id="closeDuration"
+                     name="closeDuration"
+                     value=200>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+
+    <script>
+      var data = [
+        {
+          text: "Furniture", items: [
+            { text: "Tables &amp; Chairs" },
+            { text: "Sofas" },
+            { text: "Occasional Furniture" },
+            { text: "Childerns Furniture" },
+            { text: "Beds" },
+          ],
+        },
+        {
+          text: "Decor", items: [
+            { text: "Bed Linen" },
+            { text: "Throws" },
+            { text: "Curtains &amp; Blinds" },
+            { text: "Rugs" },
+            { text: "Carpets" },
+          ],
+        },
+        {
+          text: "Storage", items: [
+            { text: "Wall Shelving" },
+            { text: "Kids Storage" },
+            { text: "Baskets" },
+            { text: "Multimedia Storage" },
+            { text: "Floor Shelving" },
+            { text: "Toilet Roll Holders" },
+            { text: "Storage Jars" },
+            { text: "Drawers" },
+            { text: "Boxes" },
+          ],
+
+        },
+        {
+          text: "Lights", items: [
+            { text: "Ceiling" },
+            { text: "Table" },
+            { text: "Floor" },
+            { text: "Shades" },
+            { text: "Wall Lights" },
+            { text: "Spotlights" },
+            { text: "Push Light" },
+            { text: "String Lights" },
+          ],
+        },
+      ];
+      var menuWidget;
+      $(function () {
+        menuWidget = $('#menu').data('kendoMenu');
+      });
+
+      function getAnimation() {
+        let animation = {};
+        if ($('#open')[0].checked) {
+          animation.open = {
+            effect: $('#openEffect').val(),
+            duration: $('#openDuration').val()
+          }
+        }
+        if ($('#close')[0].checked) {
+          animation.close = {
+            effect: $('#closeEffect').val(),
+            duration: $('#closeDuration').val()
+          }
+        }
+        return animation;
+      }
+      $(".options input").change(function () {
+        $('#openAnimation').prop('hidden', !$('#open')[0].checked);
+        $('#closeAnimation').prop('hidden', !$('#close')[0].checked);
+        $('k-menu').remove();
+        $('<k-menu id="menu" data-source=data animation=getAnimation()></k-menu>').appendTo('#menuContainer');
+      });
+    </script>
+
+    <style>
+      .configuration .k-textbox {
+        margin-top: -3px;
+      }
+    </style>
+  </div>
+</body>
+
+</html>

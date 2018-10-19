@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Position and stacking</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+
+    <k-notification id="centeredNotification"
+                    style="display:none;"
+                    stacking='down'
+                    button=true
+                    show='onShow'></k-notification>
+    <k-notification id="configurableNotification"
+                    style="display:none;"></k-notification>
+
+    <div class="demo-section k-content">
+      <div class="box-col">
+        <h4>Centered notification:</h4>
+        <ul>
+          <li><button id="showNotification"
+                    class="k-button">Show
+              centered
+              notification</button></li>
+        </ul>
+      </div>
+
+      <div class="box-col">
+        <h4>Custom positioning:</h4>
+        <ul>
+          <li><label for="left">Left position:</label>
+            <k-numeric-text-box type="number"
+                                id="left"
+                                decimals=0
+                                min=0
+                                format="n0"
+                                change=applyConfiguration
+                                class="num"></k-numeric-text-box>
+          </li>
+          <li><label for="top">Top position:</label>
+            <k-numeric-text-box type="number"
+                                id="top"
+                                decimals=0
+                                min=0
+                                format="n0"
+                                change=applyConfiguration
+                                class="num"></k-numeric-text-box>
+          </li>
+          <li><label for="right">Right position:</label>
+            <k-numeric-text-box type="number"
+                                id="right"
+                                decimals=0
+                                min=0
+                                format="n0"
+                                change=applyConfiguration
+                                class="num"
+                                value="20"></k-numeric-text-box>
+          </li>
+          <li><label for="bottom">Bottom
+              position:</label>
+            <k-numeric-text-box type="number"
+                                id="bottom"
+                                decimals=0
+                                min=0
+                                format="n0"
+                                change=applyConfiguration
+                                class="num"
+                                value="20"></k-numeric-text-box>
+          </li>
+          <li>
+            <label for="stacking">Notification
+              stacking:</label>
+            <k-drop-down-list id="stacking"
+                              style="width:6em"
+                              change='applyConfiguration'>
+              <option selected="selected">default</option>
+              <option>up</option>
+              <option>right</option>
+              <option>down</option>
+              <option>left</option>
+            </k-drop-down-list>
+          </li>
+          <li><button id="showConfigurable"
+                    class="k-button">Show
+              notification</button></li>
+          <li>
+            <p class="demo-hint">Top / Left
+              position settings take precedence
+              over Bottom / Right, if both pairs
+              are set.</p>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="box-col">
+        <h4>Hide notification:</h4>
+        <ul>
+          <li><button id="hideAllNotifications"
+                    class="k-button">Hide all
+              notifications</button></li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+
+      function onShow(e) {
+        if (e.sender.getNotifications().length == 1) {
+          var element = e.element.parent(),
+            eWidth = element.width(),
+            eHeight = element.height(),
+            wWidth = $(window).width(),
+            wHeight = $(window).height(),
+            newTop, newLeft;
+
+          newLeft = Math.floor(wWidth / 2 - eWidth / 2);
+          newTop = Math.floor(wHeight / 2 - eHeight / 2);
+
+          e.element.parent().css({ top: newTop, left: newLeft });
+        }
+      }
+
+      var centered, configurable;
+      $(function () {
+        centered = $('#centeredNotification').data('kendoNotification');
+        configurable = $('#configurableNotification').data('kendoNotification');
+      });
+
+      $("#showNotification").click(function () {
+        var d = new Date();
+        centered.show(kendo.toString(d, 'HH:MM:ss.') + kendo.toString(d.getMilliseconds(), "000"));
+      });
+
+
+      $("#hideAllNotifications").click(function () {
+        centered.hide();
+        configurable.hide();
+      });
+
+      function applyConfiguration() {
+        configurable.hide();
+        configurable.setOptions({
+          position: {
+            top: $('#top').data('kendoNumericTextBox').value(),
+            left: $('#left').data('kendoNumericTextBox').value(),
+            right: $('#right').data('kendoNumericTextBox').value(),
+            bottom: $('#bottom').data('kendoNumericTextBox').value(),
+          },
+          stacking: $('#stacking').data('kendoDropDownList').value()
+        });
+      }
+
+      var config = 'decimals=0 min=0 format="n0" change=applyConfiguration';
+
+      $("#showConfigurable").click(function () {
+        var d = new Date();
+        configurable.show(kendo.toString(d, 'HH:MM:ss.') + kendo.toString(d.getMilliseconds(), "000"));
+      });
+    </script>
+
+    <style>
+      .box-col label {
+        display: inline-block;
+        width: 11em;
+        padding-right: .8em;
+      }
+
+      .box-col li {
+        padding-bottom: .3em;
+      }
+
+      .num {
+        width: 6em;
+      }
+    </style>
+
+  </div>
+
+</body>
+
+</html>

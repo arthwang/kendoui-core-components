@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Mobile list view demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.mobile.all.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <km-view>
+    <km-list-view data-style='inset'
+                  type='group'>
+      <li>
+        Default button styles
+        <ul>
+          <li>
+            Contact Add
+            <km-detail-button data-style="contactadd">
+            </km-detail-button>
+          </li>
+          <li>Detail Disclose
+            <km-detail-button data-style="detaildisclose">
+            </km-detail-button>
+          </li>
+          <li>Row Insert
+            <km-detail-button data-style="rowinsert">
+            </km-detail-button>
+          </li>
+          <li>Row Delete
+            <km-detail-button data-style="rowdelete">
+            </km-detail-button>
+          </li>
+        </ul>
+      </li>
+      <li>
+        Custom icons
+        <ul>
+          <li>Battery level
+            <km-detail-button data-icon="battery">
+            </km-detail-button>
+          </li>
+        </ul>
+      </li>
+      <li>
+        Link Items & Detail Buttons
+        <ul>
+          <li><a>Row Insert</a>
+            <km-detail-button data-style="rowinsert">
+            </km-detail-button>
+          </li>
+          <li><a>Battery Level</a>
+            <km-detail-button data-icon="battery">
+            </km-detail-button>
+          </li>
+        </ul>
+      </li>
+    </km-list-view>
+  </km-view>
+  <script>
+    new kendo.mobile.Application();
+  </script>
+</body>
+
+</html>

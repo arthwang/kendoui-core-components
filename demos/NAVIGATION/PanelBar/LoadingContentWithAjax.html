@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Loading content with Ajax</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+    <div class="wrapper">
+      <k-panel-bar id="panelbar"
+                   expand-mode='single'
+                   content-urls="[
+                      'contents/ajaxContent1.html',
+                      'contents/ajaxContent2.html',
+                      'contents/ajaxContent3.html',
+                      'contents/ajaxContent4.html'
+                    ]">
+        <li>
+          BODY
+          <div></div>
+        </li>
+        <li>
+          ENGINE
+          <div></div>
+        </li>
+        <li>
+          TRANSMISSION
+          <div></div>
+        </li>
+        <li>
+          PERFORMANCE
+          <div></div>
+        </li>
+      </k-panel-bar>
+    </div>
+
+  </div>
+
+  <style>
+    .wrapper {
+      height: 320px;
+      margin: 20px auto;
+      padding: 20px 0 0;
+      background: url('https://demos.telerik.com/kendo-ui/content/web/panelbar/astonmartin.png') no-repeat center 50px transparent;
+    }
+
+    #panelbar {
+      width: 250px;
+      float: right;
+      margin-bottom: 20px;
+    }
+
+    #panelbar p {
+      padding: 1em;
+    }
+  </style>
+</body>
+
+</html>

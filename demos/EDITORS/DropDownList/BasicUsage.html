@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Basic usage demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+    <div id="cap-view"
+         class="demo-section k-content">
+      <h4>Customize your Kendo Cap</h4>
+      <div id="cap"
+           class="black-cap"></div>
+      <h4><label for="color">Cap Color</label></h4>
+      <k-drop-down-list id="color"
+                        value="1"
+                        style="width: 100%;"
+                        data-text-field="text"
+                        data-value-field="value"
+                        data-source="data"
+                        index=0
+                        change="onChange"></k-drop-down-list>
+
+      <h4 style="margin-top: 2em;"><label for="size">Cap
+          Size</label></h4>
+      <k-drop-down-list id="size"
+                        style="width:100%">
+        <option>S - 6 3/4"</option>
+        <option>M - 7 1/4"</option>
+        <option>L - 7 1/8"</option>
+        <option>XL - 7 5/8"</option>
+      </k-drop-down-list>
+
+      <button class="k-button k-primary"
+              id="get"
+              style="margin-top: 2em; float: right;">Customize</button>
+    </div>
+    <style>
+      #cap {
+        width: 242px;
+        height: 225px;
+        margin: 20px auto;
+        background-image: url('https://demos.telerik.com/kendo-ui/content/web/dropdownlist/cap.png');
+        background-repeat: no-repeat;
+        background-color: transparent;
+      }
+
+      .black-cap {
+        background-position: 0 0;
+      }
+
+      .grey-cap {
+        background-position: 0 -225px;
+      }
+
+      .orange-cap {
+        background-position: 0 -450px;
+      }
+    </style>
+
+    <script>
+      var data = [
+        { text: "Black", value: "1" },
+        { text: "Orange", value: "2" },
+        { text: "Grey", value: "3" }
+      ];
+
+      $(function () {
+        var color = $("#color").data("kendoDropDownList");
+        var size = $("#size").data("kendoDropDownList");
+        color.select(0);
+        $("#get").click(function () {
+          alert('Thank you! Your Choice is:\n\nColor ID: ' + color.value() + ' and Size: ' + size.value());
+        });
+      });
+
+
+      function onChange() {
+        var value = $("#color").val();
+        $("#cap")
+          .toggleClass("black-cap", value == 1)
+          .toggleClass("orange-cap", value == 2)
+          .toggleClass("grey-cap", value == 3);
+      };
+
+    </script>
+  </div>
+
+</body>
+
+</html>

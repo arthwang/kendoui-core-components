@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Fade demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+    <div class="demo-section wide">
+      <k-list-view id="listView"
+                   auto-bind=false
+                   data-source=dataSource
+                   template='imagesTemplate'></k-list-view>
+
+      <k-list-view id="list"
+                   data-source=dataSource
+                   template='listTemplate'></k-list-view>
+    </div>
+    <script type="text/x-kendo-tmpl"
+            id="imagesTemplate">
+        <li#= typeof done != "undefined" && done ? " class='done'" : "" #>
+            <img src="https://demos.telerik.com/kendo-ui/content/web/foods/${ProductID}.jpg" alt="${ProductName} image">
+        </li>
+    </script>
+
+    <script type="text/x-kendo-tmpl"
+            id="listTemplate">
+        <li#= typeof done != "undefined" && done ? " class='done'" : "" #>${ProductName}</li>
+    </script>
+
+    <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          read: {
+            url: "https://demos.telerik.com/kendo-ui/service/Products",
+            dataType: "jsonp"
+          }
+        },
+        pageSize: 8
+      });
+
+
+      $(function () {
+        $("#listView").on("click", "img", function (e) {
+          var el = $(e.currentTarget).closest("li"),
+            effect = kendo.fx(el).fadeOut().duration(700);
+
+          effect.play().then(function () {
+            dataSource.getByUid($(this).attr("data-uid")).set("done", true);
+          });
+        });
+      });
+    </script>
+    <style>
+      .demo-section {
+        position: relative;
+        background: url('https://demos.telerik.com/kendo-ui/content/web/fx/groceries.jpg') no-repeat 0 0;
+        height: 360px;
+        width: 758px;
+        padding: 0;
+      }
+
+      #listView,
+      #list {
+        position: absolute;
+        border: 0;
+        background: transparent;
+        top: 90px;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+      }
+
+      #listView {
+        left: 50px;
+        width: 380px;
+      }
+
+      #listView .done {
+        display: none;
+      }
+
+      #listView li {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        margin: 0 10px 10px 0;
+      }
+
+      #listView li,
+      #listView img {
+        overflow: hidden;
+        width: 80px;
+        height: 80px;
+        cursor: pointer;
+        border-radius: 50%;
+      }
+
+      #listView li:hover {
+        -webkit-box-shadow: 0 0 0 3px rgba(255, 255, 255, 1);
+        -moz-box-shadow: 0 0 0 3px rgba(255, 255, 255, 1);
+        -o-box-shadow: 0 0 0 3px rgba(255, 255, 255, 1);
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 1);
+      }
+
+      #list {
+        left: 523px;
+        color: #666;
+        font-size: 12px;
+      }
+
+      #list .done {
+        text-decoration: line-through;
+      }
+    </style>
+  </div>
+
+</body>
+
+</html>

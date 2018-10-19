@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Slider demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+    <div class="demo-section k-content">
+      <h4>Balance</h4>
+      <k-slider id="slider"
+                class="balSlider"
+                value="0"
+                title="slider"
+                increase-button-title='Right'
+                decrease-button-title='Left'
+                min=-10
+                max=10
+                small-step=2
+                large-step=1></k-slider>
+      <h4 style="padding-top: 2em;">Equalizer</h4>
+      <div id="equalizer">
+        <k-slider class="eqSlider"
+                  value="10"
+                  title="eqSlider1"></k-slider>
+        <k-slider class="eqSlider"
+                  value="5"
+                  title="eqSlider2"></k-slider>
+        <k-slider class="eqSlider"
+                  value="0"
+                  title="eqSlider3"></k-slider>
+        <k-slider class="eqSlider"
+                  value="10"
+                  title="eqSlider4"></k-slider>
+        <k-slider class="eqSlider"
+                  value="15"
+                  title="eqSlider5"></k-slider>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        $('.eqSlider').attr({
+          orientation: "vertical",
+          min: -20,
+          max: 20,
+          'small-step': 1,
+          'large-step': 20,
+          'show-buttons': false
+        });
+      })
+    </script>
+
+    <style>
+      .demo-section {
+        text-align: center;
+      }
+
+      #equalizer {
+        padding-right: 15px;
+      }
+
+      div.balSlider {
+        width: 100%;
+      }
+
+      div.balSlider .k-slider-selection {
+        display: none;
+      }
+
+      div.eqSlider {
+        display: inline-block;
+        margin: 1em;
+        height: 122px;
+        vertical-align: top;
+      }
+    </style>
+  </div>
+
+</body>
+
+</html>

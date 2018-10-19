@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Basic usage</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+    <div class="demo-section">
+      <div class="settings-head"></div>
+      <ul>
+        <li>Notifications
+          <km-switch aria-label="Notifications Switch"
+                     checked="checked"></km-switch>
+        </li>
+        <li>Send notifications
+          <km-switch aria-label="Mail Switch"
+                     on-label='YES'
+                     off-label='NO'></km-switch>
+        </li>
+        <li>Always visible
+          <km-switch aria-label="Visible Switch"
+                     checked=true></km-switch>
+        </li>
+        <li>Display real name
+          <km-switch aria-label="Name Switch"></km-switch>
+        </li>
+      </ul>
+    </div>
+
+    <style>
+      .demo-section ul {
+        margin: 0;
+        padding: 0;
+      }
+
+      .demo-section ul li {
+        margin: 0;
+        padding: 10px 10px 10px 20px;
+        min-height: 28px;
+        line-height: 28px;
+        vertical-align: middle;
+        border-top: 1px solid rgba(128, 128, 128, .5);
+      }
+
+      .demo-section {
+        min-width: 220px;
+        margin-top: 50px;
+        padding: 0;
+      }
+
+      .demo-section ul li .km-switch {
+        float: right;
+      }
+
+      .settings-head {
+        height: 66px;
+        background: url('https://demos.telerik.com/kendo-ui/content/web/switch/settings-title.png') no-repeat 20px 50% #2db245;
+      }
+    </style>
+  </div>
+
+</body>
+
+</html>

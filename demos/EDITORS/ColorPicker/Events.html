@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Events</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src="/assets/console.js"></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+    <div class="demo-section k-content">
+      <div class="box-col">
+        <h4>FlatColorPicker:</h4>
+        <k-flat-color-picker id="flatcolorpicker"
+                             change=onFlatPickerChange></k-flat-color-picker>
+      </div>
+      <div class="box-col">
+        <h4>ColorPicker (palette):</h4>
+        <k-color-picker id="palette-picker"
+                        value="#cc2222"
+                        palette="basic"
+                        select="onSelect"
+                        change="onChange"
+                        open="onOpen"
+                        close="onClose"></k-color-picker>
+      </div>
+      <div class="box-col">
+        <h4>ColorPicker (HSV):</h4>
+        <k-color-picker id="hsv-picker"
+                        value="#22cc22"
+                        select="onSelect"
+                        change="onChange"
+                        open="onOpen"
+                        close="onClose"></k-color-picker>
+      </div>
+      <div class="box-col">
+        <k-color-palette change="onPaletteChange"></k-color-palette>
+      </div>
+    </div>
+    <div class="box">
+      <h4>Console log</h4>
+      <div class="console"></div>
+    </div>
+    <script>
+      function onFlatPickerChange(e) {
+        kendoConsole.log('Change in flat color picker :: ' + e.value);
+      }
+      function onPaletteChange(e) {
+        kendoConsole.log('Change in palette :: ' + e.value);
+      }
+      function onSelect(e) {
+        kendoConsole.log("Select in picker #" + this.element.attr("id") + "::" + e.value);
+      }
+      function onChange(e) {
+        kendoConsole.log("Change in picker #" + this.element.attr("id") + "::" + e.value);
+      }
+      function onOpen(e) {
+        kendoConsole.log("Open in picker #" + this.element.attr("id"));
+      }
+      function onClose(e) {
+        kendoConsole.log("Close in picker #" + this.element.attr("id"));
+      }
+    </script>
+  </div>
+
+</body>
+
+</html>

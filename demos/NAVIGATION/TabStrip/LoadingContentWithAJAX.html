@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Loading content with AJAX</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+    <div class="wrapper">
+      <k-tab-strip id="tabstrip"
+                   animation='{open:{effects:"fadeIn"}}'
+                   content-urls="[
+                      'contents/ajaxContent1.html',
+                      'contents/ajaxContent2.html',
+                      'contents/ajaxContent3.html'
+                    ]">
+        <ul>
+          <li class="k-state-active">Dimensions
+            &amp; Weights</li>
+          <li>Engine</li>
+          <li>Chassis</li>
+        </ul>
+      </k-tab-strip>
+    </div>
+  </div>
+
+  <style>
+    .wrapper {
+      height: 455px;
+      margin: 20px auto;
+      padding: 20px 0 0 0;
+      background: url('https://demos.telerik.com/kendo-ui/content/web/tabstrip/bmw.png') no-repeat center 60px transparent;
+    }
+
+    #tabstrip {
+      max-width: 400px;
+      float: right;
+      margin-bottom: 20px;
+    }
+
+    #tabstrip .k-content {
+      height: 320px;
+      overflow: auto;
+    }
+
+    .specification {
+      max-width: 670px;
+      margin: 10px 0;
+      padding: 0;
+    }
+
+    .specification dt,
+    dd {
+      max-width: 140px;
+      float: left;
+      margin: 0;
+      padding: 5px 0 8px 0;
+    }
+
+    .specification dt {
+      clear: left;
+      width: 100px;
+      margin-right: 7px;
+      padding-right: 0;
+      opacity: 0.7;
+    }
+
+    .specification:after,
+    .wrapper:after {
+      content: ".";
+      display: block;
+      clear: both;
+      height: 0;
+      visibility: hidden;
+    }
+  </style>
+
+</body>
+
+</html>

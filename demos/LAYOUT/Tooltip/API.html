@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>API demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example"
+       style="min-height: 360px">
+    <div class="box wide">
+      <ul class="options">
+        <li>
+          Show at
+          <k-drop-down-list change='function () {
+              tooltip.show($("#target" + this.value()));
+            }'>
+            <option value="1">Target 1</option>
+            <option value="2">Target 2</option>
+          </k-drop-down-list>
+        </li>
+      </ul>
+    </div>
+
+    <k-tooltip id="tooltip"
+               auto-hide=false
+               show-on='click'
+               position='bottom'
+               filter='div'
+               width=200
+               content='Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'>
+      <div id="target1"
+           class="k-group">Target 1</div>
+      <div id="target2"
+           class="k-group">Target 2</div>
+    </k-tooltip>
+
+    <script>
+      var tooltip;
+      $(function () {
+        tooltip = $('#tooltip').data('kendoTooltip');
+      });
+    </script>
+    <style>
+      #target1,
+      #target2 {
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        width: 200px;
+        white-space: nowrap;
+        border-width: 1px;
+        border-style: solid;
+        padding: 2em;
+      }
+
+      .k-black #target1,
+      .k-black #target2,
+      .k-metroblack #target1,
+      .k-metroblack #target2,
+      .k-highcontrast #target1,
+      .k-highcontrast #target2,
+      .k-flat #target1,
+      .k-flat #target2,
+      .k-moonlight #target1,
+      .k-moonlight #target2 {
+        color: #ffffff;
+      }
+    </style>
+  </div>
+</body>
+
+</html>

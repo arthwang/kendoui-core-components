@@ -1,0 +1,35 @@
+{
+  "name": "kendoui-core-components",
+  "version": "0.1.0",
+  "description": "kendo ui core components",
+  "files": [
+    "/dist",
+    "/assets/components",
+    "/assets/demo.gif"
+  ],
+  "scripts": {
+    "watch": "tsc --watch",
+    "clean": "rm -rf out",
+    "start": "live-server",
+    "dist": "tsc; ./node_modules/.bin/uglifyjs out/kendo-core-components.js -o dist/kendo-core-components.min.js -c -m --toplevel"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jquery": "^3.3.6",
+    "@types/kendo-ui": "^2018.3.0",
+    "@types/node": "^10.11.7",
+    "balanced-match": "^1.0.0",
+    "live-server": "^1.2.0",
+    "uglify-es": "^3.3.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthwang/kendoui-core-components"
+  },
+  "author": "Arthur Wang",
+  "license": "Apache 2",
+  "bugs": {
+    "url": "https://github.com/arthwang/kendoui-core-components"
+  },
+  "homepage": "https://github.com/arthwang/kendoui-core-components"
+}

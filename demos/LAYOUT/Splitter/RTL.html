@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>RTL demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.rtl.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+
+    <div class="k-rtl">
+
+      <k-splitter id="vertical"
+                  orientation='"vertical"'
+                  panes='[
+                      { collapsible: false },
+                      { collapsible: false, size: "100px" },
+                      { collapsible: false, resizable: false, size:
+                      "100px" }
+                      ]'>
+        <div id="top-pane">
+          <k-splitter id="horizontal"
+                      style="height: 100%; width: 100%;"
+                      panes='[
+                    { collapsible: true },
+                    { collapsible: false },
+                    { collapsible: true }
+                    ]'>
+            <div id="left-pane">
+              <div class="pane-content">
+                <h3>Inner splitter / left pane</h3>
+                <p>Resizable and collapsible.</p>
+              </div>
+            </div>
+            <div id="center-pane">
+              <div class="pane-content">
+                <h3>Inner splitter / center pane</h3>
+                <p>Resizable only.</p>
+              </div>
+            </div>
+            <div id="right-pane">
+              <div class="pane-content">
+                <h3>Inner splitter / right pane</h3>
+                <p>Resizable and collapsible.</p>
+              </div>
+            </div>
+          </k-splitter>
+        </div>
+        <div id="middle-pane">
+          <div class="pane-content">
+            <h3>Outer splitter / middle pane</h3>
+            <p>Resizable only.</p>
+          </div>
+        </div>
+        <div id="bottom-pane">
+          <div class="pane-content">
+            <h3>Outer splitter / bottom pane</h3>
+            <p>Non-resizable and non-collapsible.</p>
+          </div>
+        </div>
+      </k-splitter>
+    </div>
+
+    <style>
+      #vertical {
+        height: 380px;
+        margin: 0 auto;
+      }
+
+      #middle-pane {
+        background-color: rgba(60, 70, 80, 0.10);
+      }
+
+      #bottom-pane {
+        background-color: rgba(60, 70, 80, 0.15);
+      }
+
+      #left-pane {
+        background-color: rgba(60, 70, 80, 0.05);
+      }
+
+      #center-pane {
+        background-color: rgba(60, 70, 80, 0.05);
+      }
+
+      #right-pane {
+        background-color: rgba(60, 70, 80, 0.05);
+      }
+
+      .pane-content {
+        padding: 0 10px;
+      }
+    </style>
+  </div>
+</body>
+
+</html>

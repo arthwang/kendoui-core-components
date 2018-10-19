@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Handlers demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+    <div id="pages">
+      <div id="pages-title"><span>Site Menu</span></div>
+      <k-sortable id="sortable-handlers"
+                  handler='.handler'
+                  hint='function (element) {
+                        return element.clone().addClass("hint");
+                      }'>
+        <div class="item">
+          <span class="handler">&nbsp;</span>
+          <span>About us</span>
+        </div>
+        <div class="item">
+          <span class="handler">&nbsp;</span>
+          <span>Contact us</span>
+        </div>
+        <div class="item">
+          <span class="handler">&nbsp;</span>
+          <span>Community</span>
+        </div>
+        <div class="item">
+          <span class="handler">&nbsp;</span>
+          <span>Products</span>
+        </div>
+        <div class="item">
+          <span class="handler">&nbsp;</span>
+          <span>Services</span>
+        </div>
+      </k-sortable>
+    </div>
+    <style>
+      #example {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      #pages {
+        margin: 30px auto;
+        width: 300px;
+        background-color: #f3f5f7;
+        border-radius: 4px;
+        border: 1px solid rgba(0, 0, 0, .1);
+      }
+
+      #pages-title {
+        height: 60px;
+        background: url('https://demos.telerik.com/kendo-ui/content/web/sortable/handlers-title.png') no-repeat 50% 15px;
+      }
+
+      #pages-title span {
+        display: none;
+      }
+
+      .item {
+        margin: 15px;
+        padding: 0 10px 0 0;
+        min-width: 200px;
+        background-color: #fff;
+        border: 1px solid rgba(0, 0, 0, .1);
+        border-radius: 3px;
+        font-size: 1.3em;
+        line-height: 2.5em;
+      }
+
+      .handler {
+        display: inline-block;
+        width: 30px;
+        margin-right: 10px;
+        border-radius: 3px 0 0 3px;
+        background: url('https://demos.telerik.com/kendo-ui/content/web/sortable/handle.png') no-repeat 50% 50% #ccc;
+        cursor: move;
+      }
+
+      .handler:hover {
+        background-color: #2db245;
+      }
+
+      .placeholder {
+        width: 298px;
+        border: 1px solid #2db245;
+      }
+
+      .hint {
+        border: 2px solid #2db245;
+        border-radius: 6px;
+      }
+
+      .hint .handler {
+        background-color: #2db245;
+      }
+    </style>
+  </div>
+</body>
+
+</html>

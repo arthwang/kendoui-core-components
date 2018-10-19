@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Mobile modal view demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.mobile.all.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <km-view>
+    <km-button data-rel="modalview"
+               href="#foo">Foo</km-button>
+  </km-view>
+
+  <km-modal-view id="foo"
+                 style="width:300px; height:200px">
+    <div data-role="header">
+      <km-nav-bar>
+        <span data-role="view-title">Hello World!</span>
+        <km-button data-align="right"
+                   click='onClick'>Close</km-button>
+      </km-nav-bar>
+    </div>
+
+    <km-list-view>
+      <li>Foo</li>
+      <li>Bar</li>
+    </km-list-view>
+
+    <div data-role="footer">
+      <km-nav-bar>
+        <km-button data-align="right">Details</km-button>
+      </km-nav-bar>
+    </div>
+  </km-modal-view>
+  <script>
+    function onClick(e) {
+      e.sender.element.closest("[data-role=modalview]").data("kendoMobileModalView").close();
+    }
+    new kendo.mobile.Application();
+  </script>
+</body>
+
+</html>

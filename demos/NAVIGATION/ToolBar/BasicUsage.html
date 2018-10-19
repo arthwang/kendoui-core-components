@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Basic usage demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+    <div class="demo-section k-content wide">
+      <k-tool-bar items=items></k-tool-bar>
+    </div>
+    <script>
+      var items = [
+        { type: "button", text: "Button" },
+        { type: "button", text: "Toggle Button", togglable: true },
+        {
+          type: "splitButton",
+          text: "Insert",
+          menuButtons: [
+            { text: "Insert above", icon: "insert-up" },
+            { text: "Insert between", icon: "insert-middle" },
+            { text: "Insert below", icon: "insert-down" }
+          ]
+        },
+        { type: "separator" },
+        { template: "<label for='dropdown'>Format:</label>" },
+        {
+          template: "<k-drop-down-list option-label='Paragraph' data-text-field='text' data-value-field='value' data-source='dataSource' id='dropdown' style='width: 150px;'></k-drop-down-list>",
+          overflow: "never"
+        },
+        { type: "separator" },
+        {
+          type: "buttonGroup",
+          buttons: [
+            { icon: "align-left", text: "Left", togglable: true, group: "text-align" },
+            { icon: "align-center", text: "Center", togglable: true, group: "text-align" },
+            { icon: "align-right", text: "Right", togglable: true, group: "text-align" }
+          ]
+        },
+        {
+          type: "buttonGroup",
+          buttons: [
+            { icon: "bold", text: "Bold", togglable: true },
+            { icon: "italic", text: "Italic", togglable: true },
+            { icon: "underline", text: "Underline", togglable: true }
+          ]
+        },
+        {
+          type: "button",
+          text: "Action",
+          overflow: "always"
+        },
+        {
+          type: "button",
+          text: "Another Action",
+          overflow: "always"
+        },
+        {
+          type: "button",
+          text: "Something else here",
+          overflow: "always"
+        }
+      ];
+
+      var dataSource = [
+        { text: "Heading 1", value: 1 },
+        { text: "Heading 2", value: 2 },
+        { text: "Heading 3", value: 3 },
+        { text: "Title", value: 4 },
+        { text: "Subtitle", value: 5 }
+      ];
+    </script>
+
+  </div>
+
+</body>
+
+</html>

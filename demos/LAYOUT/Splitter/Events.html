@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Events demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src="/assets/console.js"></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+    <k-splitter id="splitter"
+                style="height: 400px"
+                orientation='vertical'
+                panes='[
+                      { collapsible: true, 
+                        size: "100px" },
+                      { collapsible: false, 
+                        contentUrl: "https://demos.telerik.com/kendo-ui/content/web/splitter/ajax/ajaxContent1.html" },
+                      { collapsible: true, 
+                        size: "20%" }
+                    ]'
+                expand='onExpand'
+                collapse='onCollapse'
+                content-load='onContentLoad'
+                resize='onResize'>
+      <div id="top_pane">
+        <p>
+          Top pane
+        </p>
+      </div>
+      <div id="ajax_pane">
+        <!-- content loaded with ajax -->
+      </div>
+      <div id="bottom_pane">
+        <p>
+          Bottom pane
+        </p>
+      </div>
+    </k-splitter>
+
+    <div class="box wide">
+      <h4>Console log</h4>
+      <div class="console"></div>
+    </div>
+  </div>
+  <script>
+    function onResize(e) {
+      kendoConsole.log("Resized :: Splitter <b>#" + this.element[0].id + "</b>");
+    }
+
+    function onExpand(e) {
+      kendoConsole.log("Expanded :: Pane <b>#" + e.pane.id + "</b> from splitter <b>#" + this.element[0].id + "</b> expanded");
+    }
+
+    function onCollapse(e) {
+      kendoConsole.log("Collapsed :: Pane <b>#" + e.pane.id + "</b> from splitter <b>#" + this.element[0].id + "</b> collapsed");
+    }
+
+    function onContentLoad(e) {
+      kendoConsole.log("Content loaded in <b>#" + e.pane.id +
+        "</b> and starts with <b>" + $(e.pane).text().substr(0, 20) + "https://demos.telerik.com/kendo-ui.</b>");
+    }
+  </script>
+</body>
+
+</html>

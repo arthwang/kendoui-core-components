@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Integration with list view</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+    <script src="https://demos.telerik.com/kendo-ui/content/shared/js/products.js"></script>
+    <k-sortable filter='div.product'
+                cursor='move'
+                placeholder='function (element) {
+                        return element.clone().css("opacity", 0.1);
+                      }'
+                hint='function (element) {
+                        return element.clone().removeClass("k-state-selected");
+                      }'
+                change='function (e) {
+                        var skip = dataSource.skip(),
+                          oldIndex = e.oldIndex + skip,
+                          newIndex = e.newIndex + skip,
+                          data = dataSource.data(),
+                          dataItem = dataSource.getByUid(e.item.data("uid"));
+
+                        dataSource.remove(dataItem);
+                        dataSource.insert(newIndex, dataItem);
+                      }'>
+      <k-list-view d="listView"
+                   data-source=dataSource
+                   template='template'>
+      </k-list-view>
+    </k-sortable>
+    <k-pager id="pager"
+             class="k-pager-wrap"
+             data-source=dataSource></k-pager>
+
+    <script type="text/x-kendo-template"
+            id="template">
+                  <div class="product">
+                      <img src="https://demos.telerik.com/kendo-ui/content/web/foods/#= ProductID #.jpg" alt="#: ProductName # image" />
+                      <h3>#:ProductName#</h3>
+                      <p>#:kendo.toString(UnitPrice, "c")#</p>
+                  </div>
+              </script>
+
+    <script>
+      var dataSource = new kendo.data.DataSource({
+        data: products,
+        pageSize: 21
+      });
+    </script>
+    <style>
+      #listView {
+        padding: 10px 5px;
+        margin-bottom: -1px;
+        min-height: 400px;
+      }
+
+      .product {
+        float: left;
+        position: relative;
+        width: 111px;
+        height: 170px;
+        margin: 0 5px;
+        padding: 0;
+        cursor: move;
+      }
+
+      .product img {
+        width: 110px;
+        height: 110px;
+      }
+
+      .product h3 {
+        margin: 0;
+        padding: 3px 5px 0 0;
+        max-width: 96px;
+        overflow: hidden;
+        line-height: 1.1em;
+        font-size: .9em;
+        font-weight: normal;
+        text-transform: uppercase;
+      }
+
+      .product p {
+        visibility: hidden;
+      }
+
+      #listView .product:hover p {
+        visibility: visible;
+        position: absolute;
+        width: 110px;
+        height: 110px;
+        top: 0;
+        margin: 0;
+        padding: 0;
+        line-height: 110px;
+        vertical-align: middle;
+        text-align: center;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.75);
+        transition: background .2s linear, color .2s linear;
+        -moz-transition: background .2s linear, color .2s linear;
+        -webkit-transition: background .2s linear, color .2s linear;
+        -o-transition: background .2s linear, color .2s linear;
+      }
+
+      .k-listview:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+      }
+    </style>
+  </div>
+</body>
+
+</html>

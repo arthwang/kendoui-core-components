@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>RTL demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.rtl.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+    <div class="k-rtl demo-section k-content">
+      <h4>ProgressBar</h4>
+      <k-progress-bar id="progressBar"
+                      type='percent'
+                      animation='{duration:600}'
+                      complete='function() {
+                                $("#startProgress").removeClass("k-state-disabled").text("Restart Progress");
+                              }'></k-progress-bar>
+      <button id="startProgress"
+              class="k-button k-primary">Start
+        progress</button>
+    </div>
+
+    <script>
+
+      $("#startProgress").click(function () {
+        if (!$(this).hasClass("k-state-disabled")) {
+          $(this).addClass("k-state-disabled");
+
+          progress();
+        }
+      });
+
+
+      function progress() {
+        var pb = $("#progressBar").data("kendoProgressBar");
+        pb.value(0);
+
+        var interval = setInterval(function () {
+          if (pb.value() < 100) {
+            pb.value(pb.value() + 10);
+          } else {
+            clearInterval(interval);
+          }
+        }, 100);
+      }
+    </script>
+
+    <style>
+      #progressBar {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .demo-section {
+        text-align: right;
+      }
+    </style>
+  </div>
+</body>
+
+</html>

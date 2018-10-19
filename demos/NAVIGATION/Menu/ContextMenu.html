@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Context menu demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+    <script src="https://demos.telerik.com/kendo-ui/content/shared/js/webmail.js"></script>
+
+    <div class="demo-section k-content wide">
+      <h4>WebMail</h4>
+      <k-list-view id="listview-context-menu"
+                   data-source='dataSource'
+                   template='template'></k-list-view>
+    </div>
+
+    <div class="box">
+      <h4>Orientation Settings</h4>
+      <ul class="options">
+        <li>
+          <label for="orientation">orientation</label>
+          <k-drop-down-list id="orientation"
+                            name="orientation"
+                            value='horizontal'>
+            <option value="horizontal">Horizontal</option>
+            <option value="vertical">Vertical</option>
+          </k-drop-down-list>
+        </li>
+      </ul>
+      <br />
+      <a class="k-button"
+         id="apply"
+         href="#"
+         style="width: 80px;">Apply</a>
+    </div>
+
+    <script type="text/x-kendo-template"
+            id="template">
+        <div class="product">
+            <img src="https://demos.telerik.com/kendo-ui/content/shared/images/employees/#= FromID #.png" alt="#: From #" />
+
+            <h3>#:Title#</h3>
+            <p class="date">#:Date#</p>
+            <p>#:From#</p>
+        </div>
+    </script>
+    <k-context-menu id="menu"
+                    target='#listview-context-menu'
+                    filter='.product'
+                    animation='{open:{effects:"fadeIn",duration:500}}'>
+      <li>
+        <img src="https://demos.telerik.com/kendo-ui/content/web/toolbar/reply.png" />
+        Reply
+        <ul>
+          <li><img src="https://demos.telerik.com/kendo-ui/content/web/toolbar/reply.png" />
+            Reply to Sender</li>
+          <li><img src="https://demos.telerik.com/kendo-ui/content/web/toolbar/reply.png" />
+            Reply to All</li>
+        </ul>
+      </li>
+      <li class="k-separator"></li>
+      <li>
+        <img src="https://demos.telerik.com/kendo-ui/content/web/toolbar/forward.png" />
+        Forward
+      </li>
+      <li class="k-separator"></li>
+      <li>
+        Label
+        <ul>
+          <li>None</li>
+          <li class="k-separator"></li>
+          <li><img src="https://demos.telerik.com/kendo-ui/content/web/toolbar/important.png" />Important</li>
+          <li><img src="https://demos.telerik.com/kendo-ui/content/web/toolbar/todo.png" />Work</li>
+          <li><img src="https://demos.telerik.com/kendo-ui/content/web/toolbar/done.png" />Personal</li>
+          <li class="k-separator"></li>
+          <li>New Label</li>
+        </ul>
+      </li>
+    </k-context-menu>
+  </div>
+  <script>
+    var dataSource = new kendo.data.DataSource({
+      data: window.mails,
+      pageSize: 5
+    });
+    $(function () {
+      // menu not declared, so is in global scope.
+      menu = $('#menu').data('kendoContextMenu');
+    });
+
+    $("#apply").click(function (e) {
+      const newOrientation = $('#orientation').data('kendoDropDownList').value();
+      menu.setOptions({ orientation: newOrientation });
+      if (newOrientation === 'vertical') {
+        menu.wrapper.css('width', '120px');
+        $('#menu li').css('width', '100%');
+      } else {
+        menu.wrapper.css('width', '300px');
+        $('#menu li').css('width', '100px');
+      }
+    });
+
+  </script>
+
+  <style>
+    #listview-context-menu {
+      padding: 0;
+      margin-bottom: -1px;
+      min-height: 300px;
+    }
+
+    .product {
+      position: relative;
+      height: 62px;
+      margin: 0;
+      padding: 0;
+      border-bottom: 1px solid rgba(128, 128, 128, .3);
+    }
+
+    .product img {
+      width: 40px;
+      height: 40px;
+      border-radius: 40px;
+      margin: 10px;
+      border: 1px solid #000;
+      float: left;
+    }
+
+    .product h3 {
+      margin: 0;
+      padding: 15px 5px 1px 0;
+      overflow: hidden;
+      line-height: 1em;
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+
+    .product p {
+      font-size: .9em;
+    }
+
+    .product .date {
+      float: right;
+      margin: -8px 15px 0 0;
+    }
+
+    .k-listview:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+
+    @media screen and (max-width: 620px) {
+      .product h3 {
+        max-width: 100px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        height: 15px;
+      }
+
+    }
+  </style>
+</body>
+
+</html>

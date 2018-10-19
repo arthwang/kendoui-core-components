@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Axis/Container constraints demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+    <div class="demo-section hidden-on-narrow k-content wide"
+         style="min-width: 910px;">
+      <h4>Rearrange the photos</h4>
+      <k-sortable id="sortable-horizontal"
+                  axis='x'
+                  cursor='move'
+                  container='#sortable-horizontal'
+                  placeholder="<div class='placeholder'>Drop Here!</div>"
+                  hint='function (element) {
+                        return element.clone().addClass("tooltip");
+                      }'>
+        <img src="https://demos.telerik.com/kendo-ui/content/web/sortable/1.jpg" /><img
+             src="https://demos.telerik.com/kendo-ui/content/web/sortable/2.jpg" /><img
+             src="https://demos.telerik.com/kendo-ui/content/web/sortable/3.jpg" /><img
+             src="https://demos.telerik.com/kendo-ui/content/web/sortable/4.jpg" /><img
+             src="https://demos.telerik.com/kendo-ui/content/web/sortable/5.jpg" />
+      </k-sortable>
+    </div>
+
+    <div class="responsive-message"></div>
+
+    <style>
+      #example {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      #sortable-horizontal {
+        overflow: hidden;
+        width: 930px;
+        text-align: center;
+      }
+
+      #sortable-horizontal img {
+        width: 166px;
+        margin: 10px 20px 10px 0;
+        vertical-align: middle;
+        cursor: move;
+      }
+
+      .placeholder {
+        display: inline-block;
+        width: 164px;
+        height: 123px;
+        border: 1px dashed #ddd;
+        background-color: #f3f5f7;
+        margin: 10px 20px 10px 0;
+        font-size: 1.3em;
+        font-weight: bold;
+        line-height: 125px;
+        vertical-align: middle;
+        color: #777;
+      }
+
+      .tooltip {
+        opacity: .6;
+      }
+    </style>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>RTL demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.rtl.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example"
+       class="k-rtl">
+    <div id="dialog">
+      <k-dialog width='450px'
+                title='Software Update'
+                closable=false
+                modal=false
+                content='<p>A new version of <strong>Kendo UI</strong> is available. Would you like to download and install it now?<p>'
+                actions="[
+                      { text: 'Skip this version' },
+                      { text: 'Remind me later' },
+                      { text: 'Install update', primary: true },
+                    ]"
+                close='onClose'></k-dialog>
+    </div>
+    <span id="undo"
+          style="display:none"
+          class="k-button hide-on-narrow">Click
+      here to open the dialog</span>
+  </div>
+  <script>
+    var undo = $("#undo");
+
+    undo.click(function () {
+      $('#dialog').data('kendoDialog').open();
+      undo.fadeOut();
+    });
+
+    function onClose() {
+      undo.fadeIn();
+    }
+  </script>
+  <style>
+    #example {
+      min-height: 350px;
+    }
+  </style>
+</body>
+
+</html>

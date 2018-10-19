@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Cascading Combobox demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css' />
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id='example'>
+    <div class='demo-section k-content'>
+      <ul id="fieldlist">
+        <li>
+          <label for="categories">Categories</label>
+          <k-combo-box id="categories"
+                       style="width:100%"
+                       filter="contains"
+                       placeholder="Select category..."
+                       data-text-field="CategoryName"
+                       data-value-field="CategoryID"
+                       data-source="{
+                         type:'odata',
+                         serverFiltering:true,
+                         transport:{
+                           read:'https://demos.telerik.com/kendo-ui/service/Northwind.svc/Categories'
+                          }} "></k-combo-box>
+        </li>
+        <li>
+          <label for="products">Products</label>
+          <k-combo-box id="products"
+                       disabled="disabled"
+                       style="width:100%"
+                       auto-bind="false"
+                       cascade-from="'categories'"
+                       filter="contains"
+                       placeholder="Select product..."
+                       data-text-field="ProductName"
+                       data-value-field="ProductID"
+                       data-source="{
+                         type:'odata',
+                         serverFiltering:true,
+                         transport:{
+                           read:'https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products'
+                          }}"></k-combo-box>
+        </li>
+        <li>
+          <label for="orders">Orders</label>
+          <k-combo-box id="orders"
+                       disabled="disabled"
+                       style="width:100%"
+                       auto-bind="false"
+                       cascade-from="'products'"
+                       filter="contains"
+                       placeholder="Select order..."
+                       data-text-field="Order.ShipCity"
+                       data-value-field="OrderID"
+                       data-source="{
+                         type:'odata',
+                         serverFiltering:true,
+                         transport:{
+                           read:'https://demos.telerik.com/kendo-ui/service/Northwind.svc/Order_Details?$expand=Order'
+                          }}"></k-combo-box>
+        </li>
+        <li>
+          <button class="k-button k-primary"
+                  id="get">View Order</button>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+  <script>
+    $(document).ready(function () {
+      var categories = $('#categories').data('kendoComboBox');
+      var products = $('#products').data('kendoComboBox');
+      var orders = $('#orders').data('kendoComboBox');
+      $('#get').click(() => {
+        const categoryInfo = "\nCategory: { id: " + categories.value() + ", name: " + categories.text() + " }",
+          productInfo = "\nProduct: { id: " + products.value() + ", name: " + products.text() + " }",
+          orderInfo = "\nOrder: { id: " + orders.value() + ", name: " + orders.text() + " }";
+        alert("Order details:\n" + categoryInfo + productInfo + orderInfo);
+      });
+    });
+  </script>
+  <style>
+    #fieldlist {
+      margin: 0;
+      padding: 0;
+    }
+
+    #fieldlist li {
+      list-style: none;
+      padding-bottom: 1.5em;
+      text-align: left;
+    }
+
+    #fieldlist label {
+      display: block;
+      padding-bottom: .3em;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+  </style>
+</body>
+
+</html>

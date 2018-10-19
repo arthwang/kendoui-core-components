@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Direction demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+
+    <div class="demo-section k-content">
+
+      <k-menu id="menu">
+        <li>
+          Men's
+          <ul>
+            <li>Footwear
+              <ul>
+                <li>Leisure Trainers</li>
+                <li>Running Shoes</li>
+                <li>Outdoor Footwear</li>
+                <li>Sandals/Flip Flops</li>
+                <li>Footwear Accessories</li>
+
+              </ul>
+            </li>
+            <li>Leisure Clothing
+              <ul>
+                <li>T-Shirts</li>
+                <li>Hoodies &amp; Sweatshirts</li>
+                <li>Jackets</li>
+                <li>Pants</li>
+                <li>Shorts</li>
+              </ul>
+            </li>
+            <li>Sports Clothing
+              <ul>
+                <li>Football</li>
+                <li>Basketball</li>
+                <li>Golf</li>
+                <li>Tennis</li>
+                <li>Swimwear</li>
+              </ul>
+            </li>
+            <li>Accessories
+            </li>
+          </ul>
+        </li>
+        <li>
+          Women's
+          <ul>
+            <li>Footwear
+              <ul>
+                <li>Leisure Trainers</li>
+                <li>Running Shoes</li>
+                <li>Outdoor Footwear</li>
+                <li>Sandals/Flip Flops</li>
+                <li>Footwear Accessories</li>
+
+              </ul>
+            </li>
+            <li>Leisure Clothing
+              <ul>
+                <li>T-Shirts</li>
+                <li>Jackets</li>
+              </ul>
+            </li>
+            <li>Sports Clothing
+              <ul>
+                <li>Basketball</li>
+                <li>Golf</li>
+                <li>Tennis</li>
+                <li>Swimwear</li>
+              </ul>
+            </li>
+            <li>Accessories
+            </li>
+          </ul>
+        </li>
+        <li>
+          Boy's
+          <ul>
+            <li>Footwear
+              <ul>
+                <li>Leisure Trainers</li>
+                <li>Running Shoes</li>
+                <li>Outdoor Footwear</li>
+                <li>Sandals/Flip Flops</li>
+                <li>Footwear Accessories</li>
+              </ul>
+            </li>
+            <li>Leisure Clothing
+              <ul>
+                <li>T-Shirts</li>
+                <li>Hoodies &amp; Sweatshirts</li>
+                <li>Jackets</li>
+                <li>Pants</li>
+                <li>Shorts</li>
+              </ul>
+            </li>
+            <li>Sports Clothing
+              <ul>
+                <li>Football</li>
+                <li>Basketball</li>
+                <li>Rugby</li>
+                <li>Tennis</li>
+                <li>Swimwear</li>
+              </ul>
+            </li>
+            <li>Accessories
+            </li>
+          </ul>
+        </li>
+        <li>
+          Girl's
+          <ul>
+            <li>Footwear
+              <ul>
+                <li>Leisure Trainers</li>
+                <li>Running Shoes</li>
+                <li>Fitness Trainers</li>
+                <li>Sandals/Flip Flops</li>
+                <li>Footwear Accessories</li>
+              </ul>
+            </li>
+            <li>Leisure Clothing
+              <ul>
+                <li>T-Shirts</li>
+                <li>Hoodies &amp; Sweatshirts</li>
+                <li>Jackets</li>
+                <li>Pants</li>
+                <li>Shorts</li>
+              </ul>
+            </li>
+            <li>Sports Clothing
+              <ul>
+                <li>Basketball</li>
+                <li>Tennis</li>
+                <li>Swimwear</li>
+              </ul>
+            </li>
+            <li>Accessories
+            </li>
+          </ul>
+        </li>
+      </k-menu>
+
+    </div>
+
+    <div class="box">
+      <h4>Direction Settings</h4>
+      <ul class="options">
+        <li>
+          <input id="default"
+                 name="direction"
+                 type="radio"
+                 checked="checked" /> <label for="default">default
+            / bottom</label>
+        </li>
+        <li>
+          <input id="left"
+                 name="direction"
+                 type="radio" /> <label for="left">left</label>
+        </li>
+        <li>
+          <input id="right"
+                 name="direction"
+                 type="radio" /> <label for="right">right</label>
+        </li>
+        <li>
+          <input id="top"
+                 name="direction"
+                 type="radio" /> <label for="top">top</label>
+        </li>
+        <li>
+          <input id="custom"
+                 name="direction"
+                 type="radio" /> <label for="custom">custom:</label>
+          <input id="customValue"
+                 type="text"
+                 value="top left"
+                 class="k-textbox customValue" />
+        </li>
+      </ul>
+      <br />
+      <a class="k-button"
+         id="apply"
+         href="#"
+         style="width: 80px;">Apply</a>
+    </div>
+
+    <script>
+      $('#apply').click(e => {
+        const checked = $("input[type=radio]:checked")[0].id;
+        const newDirection = /custom|customValue/.test(checked) ? $("#customValue").val() : checked;
+        $('#menu').data('kendoMenu').setOptions({ direction: newDirection });
+      });
+    </script>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Orientation menu</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+    <div id="wrapper"
+         class="demo-section k-content">
+      <k-menu id="menu"
+              data-source='menuData'>
+      </k-menu>
+    </div>
+
+    <div class="box">
+      <h4>Orientation Settings</h4>
+      <ul class="options">
+        <li>
+          <label for="orientation">Orientation:</label>
+          <k-drop-down-list id="orientation"
+                            name="orientation"
+                            data-text-field='text'
+                            data-value-field='value'
+                            value='horizontal'
+                            data-source='[{ text: "Horizontal", value: "horizontal" },
+                                          { text: "Vertical", value: "vertical" }]'></k-drop-down-list>
+        </li>
+      </ul>
+      <br />
+      <a class="k-button"
+         id="apply"
+         href="#"
+         style="width: 80px;">Apply</a>
+    </div>
+    <script>
+      var menuData = [
+        {
+          text: "Men's",
+          items: [
+            {
+              text: "Footwear",
+              items: [
+                { text: "Leisure Trainers" },
+                { text: "Running Shoes" },
+                { text: "Outdoor Footwear" },
+                { text: "Sandals/Flip Flops" },
+                { text: "Footwear Accessories" }
+              ]
+            },
+            {
+              text: "Leisure Clothing",
+              items: [
+                { text: "T-Shirts" },
+                { text: "Hoodies &amp; Sweatshirts" },
+                { text: "Jackets" },
+                { text: "Pants" },
+                { text: "Shorts" }
+              ]
+            },
+            {
+              text: "Sports Clothing",
+              items: [
+                { text: "Football" },
+                { text: "Basketball" },
+                { text: "Golf" },
+                { text: "Tennis" },
+                { text: "Swimwear" },
+              ]
+            },
+            {
+              text: "Accessories"
+            },
+          ]
+        },
+        {
+          text: "Women's",
+          items: [
+            {
+              text: "Footwear",
+              items: [
+                { text: "Leisure Trainers" },
+                { text: "Running Shoes" },
+                { text: "Outdoor Footwear" },
+                { text: "Sandals/Flip Flops" },
+                { text: "Footwear Accessories" },
+
+              ]
+            },
+            {
+              text: "Leisure Clothing",
+              items: [
+                { text: "T-Shirts" },
+                { text: "Jackets" },
+              ]
+            },
+            {
+              text: "Sports Clothing",
+              items: [
+                { text: "Basketball" },
+                { text: "Golf" },
+                { text: "Tennis" },
+                { text: "Swimwear" },
+              ]
+            },
+            {
+              text: "Accessories"
+            },
+          ]
+        },
+        {
+          text: "Boy's",
+          items: [
+            {
+              text: "Footwear",
+              items: [
+                { text: "Leisure Trainers" },
+                { text: "Running Shoes" },
+                { text: "Outdoor Footwear" },
+                { text: "Sandals/Flip Flops" },
+                { text: "Footwear Accessories" },
+              ]
+            },
+            {
+              text: "Leisure Clothing",
+              items: [
+                { text: "T-Shirts" },
+                { text: "Hoodies &amp; Sweatshirts" },
+                { text: "Jackets" },
+                { text: "Pants" },
+                { text: "Shorts" },
+              ]
+            },
+            {
+              text: "Sports Clothing",
+              items: [
+                { text: "Football" },
+                { text: "Basketball" },
+                { text: "Rugby" },
+                { text: "Tennis" },
+                { text: "Swimwear" },
+              ]
+            },
+            {
+              text: "Accessories"
+            },
+          ]
+        },
+        {
+          text: "Girl's",
+          items: [
+            {
+              text: "Footwear",
+              items: [
+                { text: "Leisure Trainers" },
+                { text: "Running Shoes" },
+                { text: "Fitness Trainers" },
+                { text: "Sandals/Flip Flops" },
+                { text: "Footwear Accessories" },
+              ]
+            },
+            {
+              text: "Leisure Clothing",
+              items: [
+                { text: "T-Shirts" },
+                { text: "Hoodies &amp; Sweatshirts" },
+                { text: "Jackets" },
+                { text: "Pants" },
+                { text: "Shorts" },
+              ]
+            },
+            {
+              text: "Sports Clothing",
+              items: [
+                { text: "Basketball" },
+                { text: "Tennis" },
+                { text: "Swimwear" },
+              ]
+            },
+            {
+              text: "Accessories"
+            },
+          ]
+        },
+      ]
+    </script>
+    <script>
+      $(function () {
+        menu = $('#menu').data('kendoMenu');
+      });
+      $('#apply').click(function () {
+        const newOrient = $('#orientation').data('kendoDropDownList').value();
+        $('#menu').remove();
+        $(`<k-menu id="menu" data-source=menuData orientation='${newOrient}'></k-menu>`).appendTo('#wrapper');
+        menu = $('#menu').data('kendoMenu');
+        if (newOrient === 'vertical') {
+          $('#menu').css('width', '140px');
+        }
+      });
+    </script>
+  </div>
+</body>
+
+</html>

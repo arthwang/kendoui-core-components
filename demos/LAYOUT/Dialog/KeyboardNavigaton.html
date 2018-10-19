@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Keyboard navigation</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+    <k-dialog id='dialog'
+              width='450px'
+              title='Software Update'
+              closable=true
+              modal=false
+              content='<p>A new version of <strong>Kendo UI</strong> is available. Would you like to download and install it now?<p>'
+              actions="[
+                        { text: 'Skip this version' },
+                        { text: 'Remind me later' },
+                        { text: 'Install update', primary: true }
+                        ]"
+              close='onClose'></k-dialog>
+    <span id="show"
+          style="display:none"
+          class="k-button hidden-on-narrow">Click
+      here to open the dialog.</span>
+
+    <div class="box wide hidden-on-narrow">
+      <div class="box-col">
+        <h4>Supported keys and user actions</h4>
+        <ul class="keyboard-legend">
+          <li>
+            <span class="button-preview">
+              <span class="key-button leftAlign wider">alt</span>
+              <span class="key-button">w</span>
+            </span>
+            <span class="button-descr">
+              focuses dialog
+            </span>
+          </li>
+          <li>
+            <span class="button-preview">
+              <span class="key-button">esc</span>
+            </span>
+            <span class="button-descr">
+              closes dialog
+            </span>
+          </li>
+          <li>
+            <span class="button-preview">
+              <span class="key-button leftAlign wider">enter</span>
+              /
+              <span class="key-button">space</span>
+            </span>
+            <span class="button-descr">
+              triggers the focused action and
+              the
+              close button if focused
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="responsive-message"></div>
+
+    <script>
+      var show = $("#show");
+
+      function onClose() {
+        show.fadeIn();
+      }
+
+      show.click(function () {
+        $('#dialog').data('kendoDialog').open();
+        show.fadeOut();
+      });
+
+      // focus the widget's element
+      $(document).on("keydown.examples", function (e) {
+        if (e.altKey && e.keyCode === 87 /* w */) {
+          $('#dialog').get(0).focus();
+        }
+      });
+    </script>
+  </div>
+  <style>
+    #example .box {
+      margin-top: 250px;
+    }
+
+    #show {
+      text-align: center;
+      position: absolute;
+      white-space: nowrap;
+      padding: 1em;
+      cursor: pointer;
+    }
+  </style>
+</body>
+
+</html>

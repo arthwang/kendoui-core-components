@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Mobile button group demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.silver.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.mobile.all.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+
+</head>
+
+<body>
+  <km-view init=setBadges>
+    <div>
+      <br /><br />
+      <p>Set badges demo</p>
+    </div>
+
+    <km-button-group id='buttongroup'
+                     select='onSelect'>
+      <li>Option 1</li>
+      <li>Option 2</li>
+      <li>Option 3</li>
+    </km-button-group>
+  </km-view>
+
+  <script>
+    var app = new kendo.mobile.Application();
+    function setBadges() {
+      console.log('set badges...');
+      var buttongroup = $("#buttongroup").data("kendoMobileButtonGroup");
+      // Set the first button badge value to 5
+      buttongroup.badge(0, 5);
+      // Set the last button badge value to 10
+      buttongroup.badge("li:last", 10);
+      // Get the current badge value on the first button.
+      console.log(buttongroup.badge(0));
+      // Remove the first button badge
+      buttongroup.badge("li:first", false);
+    }
+    function onSelect(e) {
+      alert(this.current().index());
+    }
+  </script
+</body>
+</html>

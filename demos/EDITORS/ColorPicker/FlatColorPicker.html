@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Flat Color Picker</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css'
+  />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css'
+  />
+  <link rel='stylesheet'
+        href='/assets/examples.css' />
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id='example'>
+    <div class='demo-section hidden-on-narrow k-content wide'>
+      <div id="bike">
+        <div id="bike-tail"></div>
+        <div id="bike-head"></div>
+      </div>
+
+      <div class="picker-wrapper">
+        <h4>Tail color</h4>
+        <k-flat-color-picker id="tail"
+                             class="picker"
+                             preview=false
+                             value="#000"
+                             change=select></k-flat-color-picker>
+      </div>
+      <div class="picker-wrapper">
+        <h4>Front &amp; side color</h4>
+        <k-flat-color-picker id="head"
+                             class="picker"
+                             preview=false
+                             value="#e15613"
+                             change=select></k-flat-color-picker>
+      </div>
+    </div>
+
+    <div class="responsive-message"></div>
+
+    <style>
+      .demo-section {
+        text-align: center;
+        padding: 0 0 16px;
+      }
+
+      #bike {
+        margin: 0 0 10px;
+        background: url(https://demos.telerik.com/kendo-ui/content/web/colorpicker/background.png);
+      }
+
+      #bike-head,
+      #bike-tail {
+        background: url(https://demos.telerik.com/kendo-ui/content/web/colorpicker/motor.png);
+        display: inline-block;
+        height: 299px;
+        width: 241px;
+      }
+
+      #bike-tail {
+        background-color: #000;
+      }
+
+      #bike-head {
+        background-color: #e15613;
+        background-position: -241px 0;
+      }
+
+      .picker-wrapper {
+        display: inline-block;
+        text-align: left;
+        width: 252px;
+        margin: 0 18px;
+      }
+
+      .picker-wrapper .k-hsv-gradient {
+        height: 140px;
+      }
+
+      .picker-wrapper h3 {
+        padding: 13px 0 5px;
+        text-align: left;
+      }
+    </style>
+    <script>
+      function select(e) {
+        $("#bike-" + this.element.attr("id")).css("background-color", e.value);
+      }
+    </script>
+  </div>
+</body>
+
+</html>

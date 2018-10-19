@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Mobile collapsible demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.mobile.all.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <km-view init=onInit>
+    <km-collapsible>
+      <h3>Header</h3>
+      <div id="content"></div>
+    </km-collapsible>
+  </km-view>
+  <script id="template"
+          type="text/x-kendo-template">
+      <div>#:name#</div>
+  </script>
+
+  <script>
+    var template = kendo.template($("#template").html()); //create template
+    var dataSource = new kendo.data.DataSource({
+      data: [
+        { id: 1, name: "Jack" },
+        { id: 2, name: "Jane" }
+      ],
+      change: function () {
+        $("#content").html(kendo.render(template, this.view())); // populate the content
+      }
+    });
+    function onInit() {
+      dataSource.fetch(); //read the dataSource
+    }
+  </script>
+
+  <script>
+    var app = new kendo.mobile.Application();
+  </script>
+</body>
+
+</html>

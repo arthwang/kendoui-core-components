@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Keyboard navigation demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+
+    <div class="demo-section k-content">
+      <h4>T-shirt Size</h4>
+      <k-drop-down-list id="select"
+                        placeholder="Select size..."
+                        style="width: 100%;"
+                        accesskey="w">
+        <option>X-Small</option>
+        <option>Small</option>
+        <option>Medium</option>
+        <option selected>Large</option>
+        <option>X-Large</option>
+        <option>2X-Large</option>
+      </k-drop-down-list>
+    </div>
+
+    <div class="box">
+      <h4>Keyboard legend</h4>
+      <ul class="keyboard-legend">
+        <li>
+          <span class="button-preview">
+            <span class="key-button leftAlign wider"><a
+                 target="_blank"
+                 href="http://en.wikipedia.org/wiki/Access_key">Access
+                key</a></span>
+            +
+            <span class="key-button">w</span>
+          </span>
+          <span class="button-descr">
+            focuses the widget
+          </span>
+        </li>
+        <li>
+          <span class="button-preview">
+            <span class="key-button wider leftAlign">up
+              arrow</span>
+          </span>
+          <span class="button-descr">
+            highlights previous item
+          </span>
+        </li>
+        <li>
+          <span class="button-preview">
+            <span class="key-button wider leftAlign">left
+              arrow</span>
+          </span>
+          <span class="button-descr">
+            highlights previous item
+          </span>
+        </li>
+        <li>
+          <span class="button-preview">
+            <span class="key-button wider leftAlign">down
+              arrow</span>
+          </span>
+          <span class="button-descr">
+            highlights next item
+          </span>
+        </li>
+        <li>
+          <span class="button-preview">
+            <span class="key-button wider leftAlign">right
+              arrow</span>
+          </span>
+          <span class="button-descr">
+            highlights next item
+          </span>
+        </li>
+        <li>
+          <span class="button-preview">
+            <span class="key-button">home</span>
+          </span>
+          <span class="button-descr">
+            selects first item in the list
+          </span>
+        </li>
+        <li>
+          <span class="button-preview">
+            <span class="key-button">end</span>
+          </span>
+          <span class="button-descr">
+            selects last item in the list
+          </span>
+        </li>
+        <li>
+          <span class="button-preview">
+            <span class="key-button wider leftAlign">page
+              up</span>
+          </span>
+          <span class="button-descr">
+            scrolls the popup up
+          </span>
+        </li>
+        <li>
+          <span class="button-preview">
+            <span class="key-button wider leftAlign">page
+              down</span>
+          </span>
+          <span class="button-descr">
+            scrolls the popup down
+          </span>
+        </li>
+        <li>
+          <span class="button-preview">
+            <span class="key-button wider rightAlign">enter</span>
+          </span>
+          <span class="button-descr">
+            selects highlighted item
+          </span>
+        </li>
+        <li>
+          <span class="button-preview">
+            <span class="key-button">esc</span>
+          </span>
+          <span class="button-descr">
+            closes the popup
+          </span>
+        </li>
+        <li>
+          <span class="button-preview">
+            <span class="key-button">alt</span>
+            <span class="key-button wider leftAlign">down
+              arrow</span>
+          </span>
+          <span class="button-descr">
+            opens the popup
+          </span>
+        </li>
+        <li>
+          <span class="button-preview">
+            <span class="key-button wider rightAlign">space</span>
+          </span>
+          <span class="button-descr">
+            opens the popup / selects highlighted
+            item
+          </span>
+        </li>
+        <li>
+          <span class="button-preview">
+            <span class="key-button">alt</span>
+            <span class="key-button wider leftAlign">up
+              arrow</span>
+          </span>
+          <span class="button-descr">
+            closes the popup
+          </span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>API demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+    <div class="box wide hidden-on-narrow"
+         style="z-index:10000">
+      <div class="box-col">
+        <h4>API Functions</h4>
+        <ul class="options">
+          <li>
+            <button id="open"
+                    class="k-button">Open</button>
+            <button id="close"
+                    class="k-button">Close</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <k-dialog id="dialog"
+              width='450px'
+              button-layout='normal'
+              title='Software Update'
+              closable=true
+              modal=false
+              content='<p>A new version of <strong>Kendo UI</strong> is available. Would you like to download and install it now?<p>'
+              actions="[
+                    { text: 'Skip this version' },
+                    { text: 'Remind me later' },
+                    { text: 'Install update', primary: true }
+                  ]"></k-dialog>
+    <div class="responsive-message"></div>
+    <script>
+      var dialog;
+      $(function () {
+        dialog = $('#dialog').data('kendoDialog');
+      });
+
+      $("#open").click(function (e) {
+        dialog.open();
+      });
+
+      $("#close").click(function (e) {
+        dialog.close();
+      });
+    </script>
+    <style>
+      #example {
+        min-height: 200px;
+      }
+    </style>
+  </div>
+</body>
+
+</html>

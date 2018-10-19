@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>Keyboard navigation</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+    <div class="demo-section k-content">
+      <h4>Vertical menu</h4>
+      <k-menu id="verticalMenu"
+              orientation='vertical'
+              style='width:120px'>
+        <li>
+          First Item
+          <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2
+              <ul>
+                <li>Sub sub item 1</li>
+                <li>Sub sub item 2</li>
+                <li>Sub sub item 3</li>
+                <li>Sub sub item 4</li>
+              </ul>
+            </li>
+            <li>Sub Item 3</li>
+            <li>Sub Item 4</li>
+          </ul>
+        </li>
+        <li>
+          Second Item
+          <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+            <li>Sub Item 4</li>
+          </ul>
+        </li>
+        <li disabled="disabled">Disabled Item</li>
+      </k-menu>
+
+      <h4 style="padding-top: 2em;">Horizontal
+        menu</h4>
+      <k-menu id="horizontalMenu">
+        <li>
+          First Item
+          <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2
+              <ul>
+                <li>Sub sub item 1</li>
+                <li>Sub sub item 2</li>
+                <li>Sub sub item 3</li>
+                <li>Sub sub item 4</li>
+              </ul>
+            </li>
+            <li>Sub Item 3</li>
+            <li>Sub Item 4</li>
+          </ul>
+        </li>
+        <li>
+          Second Item
+          <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+            <li>Sub Item 4</li>
+          </ul>
+        </li>
+        <li disabled="disabled">Disabled Item</li>
+      </k-menu>
+    </div>
+
+    <script>
+      $(document.body).keydown(function (e) {
+        if (e.altKey && e.keyCode == 87) {
+          console.log('alt-w');
+
+          $("#verticalMenu").focus();
+        } else if (e.altKey && e.keyCode == 81) {
+          $("#horizontalMenu").focus();
+        }
+      });
+    </script>
+
+    <div class="box wide">
+      <div class="box-col">
+        <h4>Focus</h4>
+        <ul class="keyboard-legend">
+          <li>
+            <span class="button-preview">
+              <span class="key-button leftAlign">Alt</span>
+              +
+              <span class="key-button">W</span>
+            </span>
+            <span class="button-descr">
+              focuses vertical menu (clicking on
+              it
+              or tabbing also work)
+            </span>
+          </li>
+          <li>
+            <span class="button-preview">
+              <span class="key-button leftAlign">Alt</span>
+              +
+              <span class="key-button">Q</span>
+            </span>
+            <span class="button-descr">
+              focuses the horizontal menu
+              (clicking
+              on it or tabbing also work)
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="box-col">
+        <h4>Supported keys and user actions</h4>
+        <ul class="keyboard-legend">
+          <li>
+            <span class="button-preview">
+              <span class="key-button">Home</span>
+            </span>
+            <span class="button-descr">
+              Goes to the first item
+            </span>
+          </li>
+          <li>
+            <span class="button-preview">
+              <span class="key-button">End</span>
+            </span>
+            <span class="button-descr">
+              Goes to the last item
+            </span>
+          </li>
+          <li>
+            <span class="button-preview">
+              <span class="key-button">Right</span>
+            </span>
+            <span class="button-descr">
+              Goes to the next item or opens an
+              item group
+            </span>
+          </li>
+          <li>
+            <span class="button-preview">
+              <span class="key-button">Left</span>
+            </span>
+            <span class="button-descr">
+              Goes to the previous item or closes
+              an item group
+            </span>
+          </li>
+          <li>
+            <span class="button-preview">
+              <span class="key-button">Down</span>
+            </span>
+            <span class="button-descr">
+              Opens an item group or goes to the
+              next item in a group
+            </span>
+          </li>
+          <li>
+            <span class="button-preview">
+              <span class="key-button">Up</span>
+            </span>
+            <span class="button-descr">
+              Goes to the previous item in a
+              group
+            </span>
+          </li>
+          <li>
+            <span class="button-preview">
+              <span class="key-button">Enter</span>
+            </span>
+            <span class="button-descr">
+              Select or navigate item (same as
+              click)
+            </span>
+          </li>
+          <li>
+            <span class="button-preview">
+              <span class="key-button">Space</span>
+            </span>
+            <span class="button-descr">
+              Select or navigate item (same as
+              click)
+            </span>
+          </li>
+          <li>
+            <span class="button-preview">
+              <span class="key-button">Esc</span>
+            </span>
+            <span class="button-descr">
+              closes the innermost open group
+            </span>
+          </li>
+          <li>
+            <span class="button-preview">
+              <span class="key-button">Tab</span>
+            </span>
+            <span class="button-descr">
+              tabs away from the Menu on the next
+              focusable page element
+            </span>
+          </li>
+          <li>
+            <span class="button-preview">
+              <span class="key-button leftAlign">Shift</span>
+              +
+              <span class="key-button">Tab</span>
+            </span>
+            <span class="button-descr">
+              tabs away from the Menu on the
+              previous focusable page element
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

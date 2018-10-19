@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible'
+        content='ie=edge'>
+  <title>RTL demo</title>
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.rtl.min.css' />
+  <link rel='stylesheet'
+        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+  <link rel='stylesheet'
+        href='/assets/examples.css'>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script src='/out/kendo-core-components.js'></script>
+</head>
+
+<body>
+  <div id="example">
+
+    <div class="demo-section k-rtl k-content wide">
+      <k-list-view data-source=dataSource
+                   selectable='multiple'
+                   template='template'></k-list-view>
+      <k-pager class="k-pager-wrap"
+               data-source=dataSource></k-pager>
+    </div>
+
+    <script type="text/x-kendo-tmpl"
+            id="template">
+        <div class="product">
+            <img src="https://demos.telerik.com/kendo-ui/content/web/foods/#:ProductID#.jpg" alt="#:ProductName# image" />
+            <h3>#:ProductName#</h3>
+        </div>
+    </script>
+
+    <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          read: {
+            url: "https://demos.telerik.com/kendo-ui/service/Products",
+            dataType: "jsonp"
+          }
+        },
+        pageSize: 15
+      });
+
+    </script>
+
+    <style>
+      .product {
+        float: right;
+        width: 220px;
+        height: 110px;
+        margin: 0;
+        padding: 5px;
+        cursor: pointer;
+      }
+
+      .product img {
+        float: right;
+        width: 110px;
+        height: 110px;
+      }
+
+      .product h3 {
+        margin: 0;
+        padding: 10px 10px 0 0;
+        font-size: .9em;
+        overflow: hidden;
+        font-weight: normal;
+        float: right;
+        max-width: 100px;
+        text-transform: uppercase;
+      }
+
+      .k-pager-wrap {
+        border-top: 0;
+      }
+
+      .k-listview:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+      }
+
+      #example .k-listview {
+        padding: 0;
+        min-height: 360px;
+      }
+    </style>
+  </div>
+</body>
+
+</html>
