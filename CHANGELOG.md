@@ -1,5 +1,7 @@
 # Changelog
 
+## [0.1.8]
+* keywords in package.json
 ## [0.1.7]
 * updated readme
 ## [0.1.6]

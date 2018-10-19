@@ -2,6 +2,16 @@
   "name": "kendoui-core-components",
   "version": "0.1.7",
   "description": "kendo ui core components",
+  "keywords": [
+    "kendo ui",
+    "kendo ui core",
+    "web component",
+    "component",
+    "custom component",
+    "javascript",
+    "html",
+    "jquery"
+  ],
   "files": [
     "/dist",
     "/assets/components",
