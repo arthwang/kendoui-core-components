@@ -194,7 +194,6 @@ $(document).ready(function () {
       kendo.init(document.body, kendo.mobile.ui, kendo.ui);
     }
   }
-  console.log($('script[src*="kendo-core-components"]').attr('src'));
 
   loadKendoTags();
   isHybridUI = checkHybridUI();
