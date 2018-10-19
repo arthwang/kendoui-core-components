@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.1.3]
+## [0.1.4]
 fixed tags.json path error
 ## [0.1.1]
 fixed README.md

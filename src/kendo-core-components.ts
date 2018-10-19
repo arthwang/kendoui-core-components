@@ -174,9 +174,12 @@ $(document).ready(function () {
   });
 
   function loadKendoTags() {
+    const url = $('script[src*="kendo-core-components"]')
+      .attr('src')
+      .replace(/(dist|out)\/.*/, 'assets/components/tags.json');
     $.ajax({
       type: 'GET',
-      url: '../assets/components/tags.json',
+      url: url,
       dataType: 'json',
       success: function (data) { kendoTags = data },
       async: false
@@ -190,6 +193,8 @@ $(document).ready(function () {
       kendo.init(document.body, kendo.mobile.ui, kendo.ui);
     }
   }
+  console.log($('script[src*="kendo-core-components"]').attr('src'));
+
   loadKendoTags();
   isHybridUI = checkHybridUI();
 
