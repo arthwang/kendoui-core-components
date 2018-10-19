@@ -40,7 +40,7 @@ This package is NOT published by Progress Software Corporation, the owner of Ken
 * If you use VS Code editor, search and install 'vsc-kendo-core-components' in its extension viewlet.
 * Recommend to use cdn approach for references to css and js files of Kendo UI Core.
 e.g. In VSCode editor vsc-kendo-core-components completes the skeleton snippet when you type 'html5:kendoui' in a empty html page.
-~~~
+~~~html
 <!DOCTYPE html>
 <html lang='en'>
 <head>
@@ -75,7 +75,7 @@ e.g.
 
 * Attribute names are dash-separated counterpart of the keys of widget options objects.
   e.g. `filter`, `data-text-field`, `data-value-field`, `no-data-template`, `data-source`, and `change` correspond respectivley to `filter`, `dataTextField`, `dataValueField`, `noDataTemplate`, `dataSource`, and `change` properties and methods(listeners) of an object of AutoCompleteOptions.
-  ~~~
+  ~~~html
       <k-drop-down-list id="products"
                         style="width: 100%;"
                         filter="startswith"

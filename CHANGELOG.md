@@ -1,5 +1,7 @@
 # Changelog
 
+## [0.1.7]
+* updated readme
 ## [0.1.6]
 * del debug info
 ## [0.1.5]
