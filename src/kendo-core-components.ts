@@ -105,7 +105,7 @@ $(document).ready(function () {
     let comp: IComponent;
     $.ajax({
       type: 'GET',
-      url: "/assets/components/" + tagName + '.json',
+      url: getUrl("assets/components/" + tagName + '.json'),
       dataType: 'json',
       success: function (data) { comp = data; },
       async: false
@@ -172,14 +172,15 @@ $(document).ready(function () {
   ['appendTo', 'prependTo', 'insertBefore', 'insertAfter'].forEach(fun => {
     overrideFunction(fun);
   });
-
-  function loadKendoTags() {
-    const url = $('script[src*="kendo-core-components"]')
+  function getUrl(file: string): string {
+    return $('script[src*="kendo-core-components"]')
       .attr('src')
-      .replace(/(dist|out)\/.*/, 'assets/components/tags.json');
+      .replace(/(dist|out)\/.*/, file);
+  }
+  function loadKendoTags() {
     $.ajax({
       type: 'GET',
-      url: url,
+      url: getUrl('assets/components/tags.json'),
       dataType: 'json',
       success: function (data) { kendoTags = data },
       async: false
