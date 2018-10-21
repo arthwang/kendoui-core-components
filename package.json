@@ -3,14 +3,13 @@
   "version": "0.1.8",
   "description": "kendo ui core components",
   "keywords": [
-    "kendo ui",
-    "kendo ui core",
-    "web component",
+    "kendo",
+    "ui",
+    "core",
+    "webcomponent",
     "component",
-    "custom component",
-    "javascript",
-    "html",
-    "jquery"
+    "customelement",
+    "html"
   ],
   "files": [
     "/dist",
