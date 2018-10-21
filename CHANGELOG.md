@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.1.10]
+## [0.1.11]
 * keywords in package.json
 ## [0.1.7]
 * updated readme
