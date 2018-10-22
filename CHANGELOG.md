@@ -1,5 +1,7 @@
 # Changelog
 
+## [0.1.13]
+* fixed cascade issue
 ## [0.1.12]
 * keywords in package.json
 ## [0.1.7]

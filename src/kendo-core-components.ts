@@ -49,7 +49,7 @@ $(document).ready(function () {
     for (let i = 0; i < attrsGiven.length; i++) {
       let attrName = attrsGiven[i].name;
       let val = attrsGiven[attrName].value;
-      if (!val) val = '';
+      if (!val) val = attrName;
 
       if (comp.attrs.indexOf(attrName) > -1) {
         const camelName = attrName.split('-')
@@ -78,6 +78,12 @@ $(document).ready(function () {
     const letter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
     return letter + (Date.now() - Math.round(1e10 * Math.random()));
   }
+  function tagToJqName(tagName: string): string {
+    let jqName = tagName.toLowerCase().split('-').slice(1)
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join('');
+    return tagName.startsWith('km-') ? 'kendoMobile' + jqName : 'kendo' + jqName;
+  }
   function notInitAttrs(tag: string, attrsGiven: any, comp: IComponent) {
     let attrs = {};
     for (let i = 0; i < attrsGiven.length; i++) {
@@ -94,10 +100,6 @@ $(document).ready(function () {
       attrs['data-role'] = role;
     }
     return attrs;
-  }
-  function genId() {
-    const letter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
-    return letter + (Date.now() - Math.round(1e10 * Math.random()));
   }
   function genKendoWidget(jelem: JQuery<HTMLElement>, action?: Function, target?: any): JQuery<HTMLElement> {
     let elem = jelem[0];
@@ -139,15 +141,11 @@ $(document).ready(function () {
       action.apply(attachElem, target);
     }
     if (!notInit) {
-      let jqName = tagName.split('-').slice(1)
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join('');
-      jqName = tagName.startsWith('km-') ? 'kendoMobile' + jqName : 'kendo' + jqName;
+      const jqName = tagToJqName(tagName);
       $('#' + attachElem.attr('id'))[jqName](attrsAndOpts.options);
     }
     return attachElem;
   }
-
   function filterKendos(elemsIn) {
     return elemsIn.filter(function () {
       return (/^km?-/i.test(this.nodeName) && kendoTags.indexOf(this.nodeName.toLocaleLowerCase()) > -1);
@@ -194,10 +192,46 @@ $(document).ready(function () {
       kendo.init(document.body, kendo.mobile.ui, kendo.ui);
     }
   }
+  function addCascadeListener(data: { parentId: string, parentValField: string, childId: string, tagName: string }) {
+    const jqName = tagToJqName(data.tagName);
+    const parent = $(`#${data.parentId}`).data(jqName);
+    parent.setOptions({
+      change:
+        function () {
+          const child = $(`#${data.childId}`).data(jqName);
+          child.enable();
+
+          child.dataSource.filter({
+            field: data.parentValField,
+            value: myEval(this.value()),
+            operator: "eq"
+          });
+        }
+    })
+
+  }
+  function getCascadeData() {
+    const children = $('*')
+      .find('[cascade-from]');
+    const data = children.map(function () {
+      let pid = $(this).attr('cascade-from');
+      try {
+        pid = myEval(pid);
+      } catch (e) {
+      }
+      return {
+        parentId: pid,
+        parentValField: $(`#${pid}`).attr('data-value-field'),
+        childId: $(this).attr('id'),
+        tagName: this.nodeName
+      };
+    });
+    return data;
+  }
 
   loadKendoTags();
   isHybridUI = checkHybridUI();
-
+  const cascadeData = getCascadeData();
   let kendos = filterKendos($('*'));
   while (kendos.length > 0) {
     let elem = (<any>kendos).splice(kendos.length - 1, 1);
@@ -205,4 +239,8 @@ $(document).ready(function () {
     kendos = filterKendos($('*'));
   }
   initHybridUI(kendos);
+
+  cascadeData.each(function () {
+    addCascadeListener(this);
+  })
 });
