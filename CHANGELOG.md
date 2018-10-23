@@ -1,5 +1,7 @@
 # Changelog
 
+## [0.1.15]
+* added gitter badge
 ## [0.1.14]
 * readme.md revised
 ## [0.1.13]
