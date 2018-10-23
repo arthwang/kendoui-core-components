@@ -3,8 +3,9 @@
   Description: Webcomponent wrappers for Kendo UI Core.
   Author: arthurwang
 -->
-# Kendo UI Core Components
+
 [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/WebComponentsOfKendoUI/Lobby)
+# Kendo UI Core Components
 This package (KUICC: Kendo UI Core Components) provides webcomponent wrappers for [Kendo UI Core](https://www.telerik.com/kendo-ui/open-source-core) widgets. All functionalities of Kendo UI Core except AngularJS are supported.
 
 > __Important Note__
