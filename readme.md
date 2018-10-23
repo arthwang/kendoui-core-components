@@ -1,6 +1,11 @@
+<!-- 
+  Title: Kendo UI Core Components
+  Description: Webcomponent wrappers for Kendo UI Core.
+  Author: arthurwang
+-->
 # Kendo UI Core Components
 
-This package (KUICC: Kendo UI Core Components) provides web component wrappers for [Kendo UI Core](https://www.telerik.com/kendo-ui/open-source-core) widgets. All functionalities of Kendo UI Core except AngularJS are supported.
+This package (KUICC: Kendo UI Core Components) provides webcomponent wrappers for [Kendo UI Core](https://www.telerik.com/kendo-ui/open-source-core) widgets. All functionalities of Kendo UI Core except AngularJS are supported.
 
 > __Important Note__
 This package is NOT published by Progress Software Corporation, the owner of Kendo UI frameworks, and so no supports are provided from the company. 
