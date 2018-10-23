@@ -1,5 +1,7 @@
 # Kendo UI Core Components
 
+[![Join the chat at https://gitter.im/WebComponentsOfKendoUI/Lobby](https://badges.gitter.im/WebComponentsOfKendoUI/Lobby.svg)](https://gitter.im/WebComponentsOfKendoUI/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This package (KUICC: Kendo UI Core Components) provides web component wrappers for [Kendo UI Core](https://www.telerik.com/kendo-ui/open-source-core) widgets. All functionalities of Kendo UI Core except AngularJS are supported.
 
 > __Important Note__
