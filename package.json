@@ -7,9 +7,9 @@
     "kendo",
     "ui",
     "core",
-    "webcomponent",
+    "web",
     "component",
-    "customelement",
+    "custom element",
     "html"
   ],
   "files": [

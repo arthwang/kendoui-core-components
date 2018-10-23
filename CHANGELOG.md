@@ -1,5 +1,7 @@
 # Changelog
 
+## [0.1.16]
+* keywords update
 ## [0.1.15]
 * added gitter badge
 ## [0.1.14]
