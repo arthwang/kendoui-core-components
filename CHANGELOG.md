@@ -1,5 +1,7 @@
 # Changelog
 
+## [0.1.17]
+* fixed a bug
 ## [0.1.16]
 * keywords update
 ## [0.1.15]

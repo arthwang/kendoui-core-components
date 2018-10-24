@@ -234,7 +234,7 @@ $(document).ready(function () {
   const cascadeData = getCascadeData();
   let kendos = filterKendos($('*'));
   while (kendos.length > 0) {
-    let elem = (<any>kendos).splice(kendos.length - 1, 1);
+    let elem = (<any>kendos).splice(0, 1);
     genKendoWidget(elem);
     kendos = filterKendos($('*'));
   }
