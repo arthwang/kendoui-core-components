@@ -357,6 +357,8 @@ In order to test validation of this package, I've rewritten most demos for Kendo
 ## Some tips
 * RangeSlider: no need to include 2 `<input />`, KUICC does it for you already.
 * Don't access widgets using component tag names as selectors, since they are discarded after initialization. `$('k-auto-complete')[0]` return `undefined` even if you do have defined a component of `<k-auto-complete></k-auto-complete>` in a page.
+* Maybe you need enable 'Allow-Control-Origin' to run demos locally, since there are ajax calls to demos.telerik.com. You can disable web security to open Chrome, for example.
+* If an attribute name and its value have equal spells by 'dash-case' to 'camel-case', e.g. 'select=select' and 'data-source=dataSource', you can just specify the attribute name, like 'select' without '=select', 'data-source' without '=dataSource'.
 
 ## Change log
 [Change log](CHANGELOG.md)
