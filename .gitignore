@@ -2,5 +2,6 @@ out/
 dist/
 .vscode/
 node_modules/
-utils
-.git
+utils/
+.git/
+_site/
