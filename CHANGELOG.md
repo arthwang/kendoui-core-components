@@ -1,5 +1,7 @@
 # Changelog
 
+## [0.1.19]
+* jekyll support
 ## [0.1.18]
 * README.md update
 ## [0.1.17]
