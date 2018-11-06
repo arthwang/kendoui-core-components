@@ -8,10 +8,23 @@ $(document).ready(function () {
     compTag: string;
     attrs: string[];
   }
+  interface IWidgetConfig {
+    id: string;
+    jqName: string;
+    options: object;
+  }
+
   var kendoTags = null;
   var isHybridUI = false;
+  var widgetsToInit: IWidgetConfig[] = [];
   function myEval(str) {
     return Function('"use strict";return (' + str + ')')();
+  }
+  function initWidgets() {
+    while (widgetsToInit.length > 0) {
+      const widget = widgetsToInit.pop();
+      $(widget.id)[widget.jqName](widget.options);
+    }
   }
   function checkHybridUI(): boolean {
     return ($(document.body).children().filter(function () { return this.nodeName.toLowerCase().startsWith('km-') && this.nodeName.toLowerCase().endsWith('view') }).length > 0) ||
@@ -19,6 +32,10 @@ $(document).ready(function () {
         .filter(function () { return $(this).attr('data-role').endsWith('view') }).length > 0);
   }
   function adjustAttachTagName(elem, comp: IComponent): string {
+    const nodeName = elem.nodeName.toLowerCase();
+    if (nodeName === 'k-editor' && elem.attributes['inline']) {
+      return 'div';
+    }
     if (comp.attachTag != 'dynamic')
       return comp.attachTag;
     let tagName = comp.attachTag;
@@ -30,11 +47,14 @@ $(document).ready(function () {
         case 'li':
           tagName = 'ul';
           break;
+        case 'table':
+          tagName = 'table';
+          break;
         default:
           tagName = 'div';
           break;
       }
-    } else if ($(elem).text() !== '' || elem.attributes['data-template'] || elem.attributes['template']) {
+    } else if ($(elem).text() !== '' || elem.attributes['data-template'] || elem.attributes['template'] || nodeName === 'k-tree-view' || nodeName === 'k-grid') {
       tagName = 'div'
     } else {
       tagName = 'input'
@@ -49,7 +69,7 @@ $(document).ready(function () {
     for (let i = 0; i < attrsGiven.length; i++) {
       let attrName = attrsGiven[i].name;
       let val = attrsGiven[attrName].value;
-      if (!val) val = attrName;
+      if (!val) val = dashCaseToCamel(attrName);
 
       if (comp.attrs.indexOf(attrName) > -1) {
         const camelName = attrName.split('-')
@@ -84,6 +104,11 @@ $(document).ready(function () {
       .join('');
     return tagName.startsWith('km-') ? 'kendoMobile' + jqName : 'kendo' + jqName;
   }
+  function dashCaseToCamel(dashCase: string) {
+    return dashCase.toLowerCase().split('-').map((word, i) =>
+      i > 0 ? word.charAt(0).toUpperCase() + word.slice(1) : word
+    ).join('');
+  }
   function notInitAttrs(tag: string, attrsGiven: any, comp: IComponent) {
     let attrs = {};
     for (let i = 0; i < attrsGiven.length; i++) {
@@ -93,7 +118,7 @@ $(document).ready(function () {
       if (comp.attrs.indexOf(attrName) > -1 && !attrName.startsWith('data-')) {
         attrName = 'data-' + attrName;
       }
-      attrs[attrName] = val ? val : '';
+      attrs[attrName] = val ? val : dashCaseToCamel(val);
     }
     if (!attrsGiven['data-role']) {
       const role = tag.replace(/^km?-/, '').replace(/-/g, '');
@@ -101,9 +126,20 @@ $(document).ready(function () {
     }
     return attrs;
   }
-  function genKendoWidget(jelem: JQuery<HTMLElement>, action?: Function, target?: any): JQuery<HTMLElement> {
+  function genKendoWidgets(jelem: JQuery<HTMLElement>): JQuery<HTMLElement> {
+    return jelem.map(function () {
+      return genKendoWidget($(this))[0];
+    })
+  }
+  function genKendoWidget(jelem: JQuery<HTMLElement>): JQuery<HTMLElement> {
+    if (jelem.length > 1) {
+      return genKendoWidgets(jelem);
+    }
     let elem = jelem[0];
-    let tagName = elem.nodeName.toLocaleLowerCase();
+    let tagName = elem.nodeName.toLowerCase();
+    if (!isKendoWidget(elem)) {
+      return jelem;
+    }
     let comp: IComponent;
     $.ajax({
       type: 'GET',
@@ -112,7 +148,10 @@ $(document).ready(function () {
       success: function (data) { comp = data; },
       async: false
     });
-    let tmp = tagName === 'k-range-slider' ? '<input/><input/>' : elem.innerHTML;
+    let tmp = tagName === 'k-range-slider' ? '<input/><input/>' :
+      ((tagName === 'k-grid' && elem.children.length > 0 && elem.children[0].nodeName && elem.children[0].nodeName.toLowerCase() === 'table') ?
+        elem.children[0].innerHTML :
+        elem.innerHTML);
     let attrs, attrsAndOpts;
     const notInit = isHybridUI || elem.attributes['data-bind'];
 
@@ -134,39 +173,58 @@ $(document).ready(function () {
     if (!attrs['id']) {
       attachElem.attr('id', genWidgetId())
     }
-    $(elem).empty();
-    attachElem.appendTo(elem);
-    attachElem.unwrap();
-    if (action && target) {
-      action.apply(attachElem, target);
-    }
+    $(elem).replaceWith(attachElem);
     if (!notInit) {
       const jqName = tagToJqName(tagName);
-      $('#' + attachElem.attr('id'))[jqName](attrsAndOpts.options);
+      const id = '#' + attachElem.attr('id');
+      $(id)[jqName](attrsAndOpts.options);
+      if ($(id).data(jqName) === undefined) {
+        widgetsToInit.push({
+          id,
+          jqName,
+          options: attrsAndOpts.options
+        });
+      }
     }
     return attachElem;
   }
-  function filterKendos(elemsIn) {
+  function isKendoWidget(elem: HTMLElement): boolean {
+    return (/^km?-/i.test(elem.nodeName) && kendoTags.indexOf(elem.nodeName.toLocaleLowerCase()) > -1);
+  }
+  function filterKendos(elemsIn: JQuery<HTMLElement>) {
     return elemsIn.filter(function () {
-      return (/^km?-/i.test(this.nodeName) && kendoTags.indexOf(this.nodeName.toLocaleLowerCase()) > -1);
+      return isKendoWidget(this);
     });
   }
   function overrideFunction(fun: string) {
     let oldFun = (<any>jQuery).fn[fun];
     (<any>jQuery).fn[fun] = function () {
-      let kendos = filterKendos(this);
-      if (kendos.length === 0) {
+      let kendos = filterKendos(this.find('*'));
+
+      if (kendos.length === 0 && filterKendos(this).length === 0) {
         return oldFun.apply(this, arguments);
       }
-      const jqObj = this;
-      const args = arguments;
-      const widgets = jqObj.map(function () {
-        return genKendoWidget($(this), oldFun, args);
+
+      kendos.each(function () {
+        if (!$(this).attr('id'))
+          $(this).attr('id', genWidgetId());
       });
+      let jqObj = this.clone(true);
+      const args = arguments;
+
+      while (kendos.length > 0) {
+        let elem = (<any>kendos).splice(0, 1);
+        const newElem = genKendoWidget(elem);
+        jqObj.find('#' + $(elem).attr('id')).replaceWith(newElem);
+      }
+      const widgets = genKendoWidgets(jqObj);
+      oldFun.apply(widgets, args);
+      initWidgets();
       initHybridUI(jqObj);
       return widgets;
     }
   }
+
   ['appendTo', 'prependTo', 'insertBefore', 'insertAfter'].forEach(fun => {
     overrideFunction(fun);
   });
@@ -200,7 +258,6 @@ $(document).ready(function () {
         function () {
           const child = $(`#${data.childId}`).data(jqName);
           child.enable();
-
           child.dataSource.filter({
             field: data.parentValField,
             value: myEval(this.value()),
@@ -229,18 +286,22 @@ $(document).ready(function () {
     return data;
   }
 
+
   loadKendoTags();
   isHybridUI = checkHybridUI();
   const cascadeData = getCascadeData();
   let kendos = filterKendos($('*'));
   while (kendos.length > 0) {
     let elem = (<any>kendos).splice(0, 1);
+
     genKendoWidget(elem);
     kendos = filterKendos($('*'));
   }
+
+  initWidgets();
   initHybridUI(kendos);
 
   cascadeData.each(function () {
     addCascadeListener(this);
-  })
+  });
 });

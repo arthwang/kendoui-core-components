@@ -1,5 +1,7 @@
 # Changelog
 
+## [0.1.20]
+* support nested kendo widgets in overriden functions
 ## [0.1.19]
 * jekyll support
 ## [0.1.18]

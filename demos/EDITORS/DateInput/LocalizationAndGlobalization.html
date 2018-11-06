@@ -31,15 +31,32 @@
       <ul class="fieldlist">
         <li class="culture">
           <label for="culture">Choose culture:</label>
-          <input id="culture"
-                 value="en-US"
-                 style="width: 100%;" />
+          <k-drop-down-list id="culture"
+                            value="en-US"
+                            style="width: 100%;"
+                            change=changeCulture
+                            data-text-field=text
+                            data-value-field=value
+                            data-source='[
+                                { text: "bg-BG", value: "bg-BG" },
+                                { text: "de-DE", value: "de-DE" },
+                                { text: "en-US", value: "en-US" },
+                                { text: "en-GB", value: "en-GB" }
+                              ]'></k-drop-down-list>
         </li>
         <li class="language">
           <label for="language">Choose language:</label>
-          <input id="language"
-                 value="en-US"
-                 style="width: 100%;" />
+
+          <k-drop-down-list id="language"
+                            value="en-US"
+                            style="width: 100%;"
+                            change=changeLanguage
+                            data-text-field=text
+                            data-value-field=value
+                            data-source='[ 
+                                { text: "English", value: "en-US" },
+                                { text: "Bulgarian", value: "bg-BG" }
+                              ]'></k-drop-down-list>
         </li>
       </ul>
     </div>
@@ -77,13 +94,9 @@
         if (element.data("kendoDateInput")) {
           element.data("kendoDateInput").destroy();
           element.empty();
-          element = $('<input id="dateinput" style="width: 100%" />');
+          element = $('<k-date-input id="dateinput" format="F" value="new Date()" style="width:100%"></k-date-input>');
           element.appendTo($("#product-view").empty());
         }
-        element.kendoDateInput({
-          format: "F",
-          value: new Date()
-        });
       }
 
       function changeCulture() {
@@ -106,28 +119,6 @@
 
       $(document).ready(function () {
         createDateInput();
-
-        $("#culture").kendoDropDownList({
-          change: changeCulture,
-          dataTextField: "text",
-          dataValueField: "value",
-          dataSource: [
-            { text: "bg-BG", value: "bg-BG" },
-            { text: "de-DE", value: "de-DE" },
-            { text: "en-US", value: "en-US" },
-            { text: "en-GB", value: "en-GB" }
-          ]
-        });
-
-        $("#language").kendoDropDownList({
-          change: changeLanguage,
-          dataTextField: "text",
-          dataValueField: "value",
-          dataSource: [
-            { text: "English", value: "en-US" },
-            { text: "Bulgarian", value: "bg-BG" }
-          ]
-        });
       });
     </script>
   </div>
