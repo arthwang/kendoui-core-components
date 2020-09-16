@@ -9,15 +9,18 @@
         content='ie=edge'>
   <title>MVVM demo</title>
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.min.css' />
   <link rel='stylesheet'
         href='/assets/examples.css'>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js'></script>
   <script src="/assets/console.js"></script>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
-  <script src='/out/kendo-core-components.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/kendo.ui.core.min.js'></script>
+  <script
+          src='/out/kendo-core-components.js'></script>
 </head>
 
 <body>
@@ -29,10 +32,11 @@
                             min="0"
                             max="100"
                             data-bind="visible: isVisible,
-                              enabled: isEnabled,
-                              value: selectedNumber,
-                              events: { change: onChange }"
-                            style="width: 180px"></k-numeric-text-box>
+                                enabled: isEnabled,
+                                value: selectedNumber,
+                                events: { change: onChange }"
+                            style="width: 180px">
+        </k-numeric-text-box>
       </div>
       <div style="padding-top: 1em;">
         <h4>Console</h4>
@@ -44,19 +48,25 @@
         <h4>Configuration</h4>
         <ul>
           <li><label><input type="checkbox"
-                     data-bind="checked: isEnabled">Enable</label></li>
+                     data-bind="checked: isEnabled">Enable</label>
+          </li>
           <li><label><input type="checkbox"
-                     data-bind="checked: isVisible">Visible</label></li>
+                     data-bind="checked: isVisible">Visible</label>
+          </li>
         </ul>
       </div>
       <div class="box-col">
         <h4>Information</h4>
         Kendo UI NumericTextBox supports the
-        <a href="http://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/enabled">enabled</a>,
-        <a href="http://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/events">events</a>,
-        <a href="http://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/value">value</a>
+        <a
+           href="http://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/enabled">enabled</a>,
+        <a
+           href="http://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/events">events</a>,
+        <a
+           href="http://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/value">value</a>
         and
-        <a href="http://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/visible">visible</a>
+        <a
+           href="http://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/visible">visible</a>
         bindings.
       </div>
     </div>
@@ -74,4 +84,5 @@
       });
     </script>
   </div </body>
-        </html>
+
+</html>

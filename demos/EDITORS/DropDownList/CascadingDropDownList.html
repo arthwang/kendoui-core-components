@@ -9,14 +9,17 @@
         content='ie=edge'>
   <title>Cascading drop down list demo</title>
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.min.css' />
   <link rel='stylesheet'
         href='/assets/examples.css'>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
-  <script src='/out/kendo-core-components.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/kendo.ui.core.min.js'></script>
+  <script
+          src='/out/kendo-core-components.js'></script>
 </head>
 
 <body>
@@ -32,12 +35,12 @@
                         data-text-field="CategoryName"
                         data-value-field="CategoryID"
                         data-source='{
-                            type: "odata",
-                            serverFiltering: true,
-                            transport: {
-                              read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Categories"
-                            }
-                          }'></k-drop-down-list>
+                              type: "odata",
+                              serverFiltering: true,
+                              transport: {
+                                read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Categories"
+                              }
+                            }'></k-drop-down-list>
 
       <h4 style="margin-top: 2em;">Products:</h4>
       <k-drop-down-list id="products"
@@ -49,12 +52,12 @@
                         data-text-field="ProductName"
                         data-value-field="ProductID"
                         data-source='{
-                            type: "odata",
-                            serverFiltering: true,
-                            transport: {
-                              read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products"
-                            }
-                          }'></k-drop-down-list>
+                              type: "odata",
+                              serverFiltering: true,
+                              transport: {
+                                read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products"
+                              }
+                            }'></k-drop-down-list>
 
       <h4 style="margin-top: 2em;">Orders:</h4>
       <k-drop-down-list id="orders"
@@ -66,12 +69,12 @@
                         data-text-field="Order.ShipCity"
                         data-value-field="OrderID"
                         data-source='{
-                            type: "odata",
-                            serverFiltering: true,
-                            transport: {
-                              read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Order_Details?$expand=Order"
-                            }
-                          }'></k-drop-down-list>
+                              type: "odata",
+                              serverFiltering: true,
+                              transport: {
+                                read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Order_Details?$expand=Order"
+                              }
+                            }'></k-drop-down-list>
 
       <button class="k-button k-primary"
               id="get"

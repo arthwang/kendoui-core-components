@@ -9,16 +9,19 @@
         content='ie=edge'>
   <title>Basic usage demo</title>
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.mobile.min.css' />
   <link rel='stylesheet'
         href='/assets/examples.css'>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
-  <script src='/out/kendo-core-components.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/kendo.ui.core.min.js'></script>
+  <script
+          src='/out/kendo-core-components.js'></script>
 </head>
 
 <body>
@@ -35,10 +38,11 @@
         here.</k-drop-target>
       <k-draggable id='draggable'
                    hint='function () {
-                          return $("#draggable").clone();
-                        }'
+                         return $("#draggable").clone();
+                       }'
                    dragstart='draggableOnDragStart'
-                   dragend='draggableOnDragEnd'></k-draggable>
+                   dragend='draggableOnDragEnd'>
+      </k-draggable>
     </div>
     <div class="box wide">
       <div class="box-col">
@@ -48,8 +52,10 @@
             <k-drop-down-list id="axis"
                               change='axisOnChange'>
               <option value="">(none)</option>
-              <option value="x">Horizontal (x)</option>
-              <option value="y">Vertical (y)</option>
+              <option value="x">Horizontal (x)
+              </option>
+              <option value="y">Vertical (y)
+              </option>
             </k-drop-down-list>
           </li>
         </ul>
@@ -60,7 +66,8 @@
           <li><label for="cursorOffset"><input
                      type="checkbox"
                      id="cursorOffset"> Enable
-              <code>cursorOffset</code></label></li>
+              <code>cursorOffset</code></label>
+          </li>
         </ul>
       </div>
     </div>
@@ -102,7 +109,7 @@
         draggable = $('#draggable').data('kendoDraggable');
         axis = $('#axis').data('kendoDropDownList');
         axis.select(0);
-});
+      });
 
       $("#cursorOffset").click(function (e) {
         if (this.checked) {

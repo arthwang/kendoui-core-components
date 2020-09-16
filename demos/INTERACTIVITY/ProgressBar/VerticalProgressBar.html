@@ -9,16 +9,19 @@
         content='ie=edge'>
   <title>Vertical progress bar</title>
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.mobile.min.css' />
   <link rel='stylesheet'
         href='/assets/examples.css'>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
-  <script src='/out/kendo-core-components.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/kendo.ui.core.min.js'></script>
+  <script
+          src='/out/kendo-core-components.js'></script>
 </head>
 
 <body>
@@ -31,25 +34,30 @@
                         min=0
                         max=4
                         orientation='vertical'
-                        complete=onTotalComplete></k-progress-bar>
+                        complete=onTotalComplete>
+        </k-progress-bar>
         <k-progress-bar id="loadingProgressBar"
                         orientation='vertical'
                         show-status=false
                         animation=false
                         change=onChange
-                        complete=onComplete></k-progress-bar>
+                        complete=onComplete>
+        </k-progress-bar>
       </div>
       <div class="loadingInfo">
         <h4>Loading styles</h4>
         <div class="statusContainer">
           <p>
-            Loaded: <span class="loadingStatus">0%</span>
+            Loaded: <span
+                  class="loadingStatus">0%</span>
             <br />
-            Item <span class="chunkStatus">1</span>
+            Item <span
+                  class="chunkStatus">1</span>
             of 4
           </p>
         </div>
-        <button class="k-button reloadButton">Reload</button>
+        <button
+                class="k-button reloadButton">Reload</button>
       </div>
     </div>
 

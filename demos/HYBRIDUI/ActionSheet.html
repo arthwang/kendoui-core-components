@@ -9,16 +9,19 @@
         content='ie=edge'>
   <title>Action Sheet</title>
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.silver.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.silver.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.mobile.all.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.mobile.all.min.css' />
   <link rel='stylesheet'
         href='/assets/examples.css'>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
-  <script src="/out/kendo-core-components.js"></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/kendo.ui.core.min.js'></script>
+  <script
+          src="/out/kendo-core-components.js"></script>
 </head>
 
 <body>
@@ -27,14 +30,16 @@
     <h3 id="actionResult"></h3>
     <km-list-view data-source=inbox
                   template='inboxItem'
-                  class="inboxList"></km-list-view>
+                  class="inboxList">
+    </km-list-view>
     <km-action-sheet id="inboxActions"
                      open="onOpen"
                      popup='{"direction": "left"}'>
       <li><a href="#"
            data-action="reply">Reply</a></li>
       <li><a href="#"
-           data-action="replyAll">Reply All</a></li>
+           data-action="replyAll">Reply All</a>
+      </li>
       <li><a href="#"
            data-action="archive">Archive</a></li>
     </km-action-sheet>

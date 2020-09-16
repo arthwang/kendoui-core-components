@@ -9,16 +9,19 @@
         content='ie=edge'>
   <title>Sortable closable tabs</title>
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.mobile.min.css' />
   <link rel='stylesheet'
         href='/assets/examples.css'>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
-  <script src='/out/kendo-core-components.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/kendo.ui.core.min.js'></script>
+  <script
+          src='/out/kendo-core-components.js'></script>
 </head>
 
 <body>
@@ -28,7 +31,8 @@
                    animation=false
                    data-text-field='text'
                    data-content-field='content'
-                   data-source='dataSource'></k-tab-strip>
+                   data-source='dataSource'>
+      </k-tab-strip>
       <p class="button-container">
         <k-button id="resetButton"
                   click='onClick'
@@ -110,7 +114,11 @@
 
       function onClick(e) {
         $('k-tab-strip').remove();
-        $('<k-tab-strip id="tabstrip" animation=false data-text-field="text" data-content-field="content" data-source=dataSource></k-tab-strip>').insertBefore('.button-container');
+        $('<k-tab-strip id="tabstrip"
+                        animation=false
+                        data-text-field="text"
+                        data-content-field="content"
+                        data-source=dataSource></k-tab-strip>').insertBefore('.button-container');
         init();
       }
     </script>

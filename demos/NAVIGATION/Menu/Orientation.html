@@ -9,16 +9,19 @@
         content='ie=edge'>
   <title>Orientation menu</title>
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.mobile.min.css' />
   <link rel='stylesheet'
         href='/assets/examples.css'>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
-  <script src='/out/kendo-core-components.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/kendo.ui.core.min.js'></script>
+  <script
+          src='/out/kendo-core-components.js'></script>
 </head>
 
 <body>
@@ -34,14 +37,16 @@
       <h4>Orientation Settings</h4>
       <ul class="options">
         <li>
-          <label for="orientation">Orientation:</label>
+          <label
+                 for="orientation">Orientation:</label>
           <k-drop-down-list id="orientation"
                             name="orientation"
                             data-text-field='text'
                             data-value-field='value'
                             value='horizontal'
                             data-source='[{ text: "Horizontal", value: "horizontal" },
-                                          { text: "Vertical", value: "vertical" }]'></k-drop-down-list>
+                                { text: "Vertical", value: "vertical" }]'>
+          </k-drop-down-list>
         </li>
       </ul>
       <br />
@@ -208,7 +213,9 @@
       $('#apply').click(function () {
         const newOrient = $('#orientation').data('kendoDropDownList').value();
         $('#menu').remove();
-        $(`<k-menu id="menu" data-source=menuData orientation='${newOrient}'></k-menu>`).appendTo('#wrapper');
+        $(`<k-menu id="menu"
+                   data-source=menuData
+                   orientation='${newOrient}'></k-menu>`).appendTo('#wrapper');
         menu = $('#menu').data('kendoMenu');
         if (newOrient === 'vertical') {
           $('#menu').css('width', '140px');

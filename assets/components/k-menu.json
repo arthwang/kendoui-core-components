@@ -1,1 +1,1 @@
-{"attachTag":"ul","attrs":["animation","close-on-click","data-source","direction","hover-delay","open-on-click","orientation","popup-collision","scrollable","close","open","activate","deactivate","select"],"compTag":"k-menu"}
+{"attachTag":"ul","attrs":["animation","close-on-click","data-source","data-text-field","data-url-field","data-sprite-css-class-field","data-image-url-field","data-content-field","direction","hover-delay","open-on-click","orientation","popup-collision","scrollable","close","open","activate","deactivate","select"],"compTag":"k-menu"}

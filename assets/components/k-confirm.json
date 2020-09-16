@@ -1,1 +1,1 @@
-{"attachTag":"div","attrs":["messages"],"compTag":"k-confirm"}
+{"attachTag":"div","attrs":["content","messages","title","init-open","open"],"compTag":"k-confirm"}

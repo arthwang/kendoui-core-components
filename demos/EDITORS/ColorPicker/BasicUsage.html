@@ -9,19 +9,23 @@
         content='ie=edge'>
   <title>Colopicker Basic Usage</title>
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.min.css' />
   <link rel='stylesheet'
         href='/assets/examples.css' />
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
-  <script src='/out/kendo-core-components.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/kendo.ui.core.min.js'></script>
+  <script
+          src='/out/kendo-core-components.js'></script>
 </head>
 
 <body>
   <div id='example'>
-    <div class='demo-section hidden-on-narrow k-content wide'>
+    <div
+         class='demo-section hidden-on-narrow k-content wide'>
       <div id="background">
         <div class="column">
           <h3 class="title">Select Wall Paint</h3>
@@ -30,19 +34,21 @@
                            change=preview
                            tile-size='{ width: 34, height: 19 }'
                            palette='[ "#f0d0c9", "#e2a293", "#d4735e", "#65281a", "#eddfda",
-                      "#dcc0b6", "#cba092", "#7b4b3a", "#fcecd5", "#f9d9ab",
-                      "#f6c781", "#c87d0e", "#e1dca5", "#d0c974", "#a29a36",
-                      "#514d1b", "#c6d9f0", "#8db3e2", "#548dd4", "#17365d"
-                      ]'></k-color-palette>
+                               "#dcc0b6", "#cba092", "#7b4b3a", "#fcecd5", "#f9d9ab",
+                               "#f6c781", "#c87d0e", "#e1dca5", "#d0c974", "#a29a36",
+                               "#514d1b", "#c6d9f0", "#8db3e2", "#548dd4", "#17365d"
+                             ]'></k-color-palette>
         </div>
 
         <div class="column">
-          <h3 class="title"><label for="picker">Choose
+          <h3 class="title"><label
+                   for="picker">Choose
               Custom Color</label></h3>
           <k-color-picker id="picker"
                           value="#ffffff"
                           buttons=false
-                          select=preview></k-color-picker>
+                          select=preview>
+          </k-color-picker>
         </div>
       </div>
     </div>

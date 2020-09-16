@@ -9,17 +9,20 @@
         content='ie=edge'>
   <title>MVVM demo</title>
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.mobile.min.css' />
   <link rel='stylesheet'
         href='/assets/examples.css'>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/kendo.ui.core.min.js'></script>
   <script src="/assets/console.js"></script>
-  <script src='/out/kendo-core-components.js'></script>
+  <script
+          src='/out/kendo-core-components.js'></script>
 </head>
 
 <body>
@@ -33,14 +36,14 @@
         <k-dialog title="Software Update"
                   width="450"
                   actions="[{text:'Skip this version', action: onSkip},
-                    { text: 'Remind me later', action: onRemind },
-                    { text: 'Install update', action: onInstall, primary: true }]"
+                      { text: 'Remind me later', action: onRemind },
+                      { text: 'Install update', action: onInstall, primary: true }]"
                   modal="false"
                   content="<p>A new version of <strong>Kendo UI</strong> is available. Would you like to download and install it now?<p>"
                   data-bind="visible: isVisible,
-                    events: { 
-                      close: onClose
-                    }">
+                      events: {
+                        close: onClose
+                      }">
         </k-dialog>
       </div>
       <div class="box-col console-section">

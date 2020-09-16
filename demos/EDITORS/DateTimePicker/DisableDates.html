@@ -9,14 +9,17 @@
         content='ie=edge'>
   <title>Disable dates demo</title>
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.min.css' />
   <link rel='stylesheet'
         href='/assets/examples.css'>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
-  <script src='/out/kendo-core-components.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/kendo.ui.core.min.js'></script>
+  <script
+          src='/out/kendo-core-components.js'></script>
 </head>
 
 <body>
@@ -26,7 +29,8 @@
       <k-date-time-picker id="weekend-datetime-picker"
                           style="width: 100%"
                           value="new Date('11/13/2018')"
-                          disable-dates="['sa', 'su']"></k-date-time-picker>
+                          disable-dates="['sa', 'su']">
+      </k-date-time-picker>
 
       <h4 style="margin-top:1em">Disable Federal
         Holidays in USA in 2018</h4>
@@ -34,7 +38,8 @@
                           style="width: 100%"
                           value="new Date('1/2/2018')"
                           dates="dates"
-                          disable-dates="disableDates"></k-date-time-picker>
+                          disable-dates="disableDates">
+      </k-date-time-picker>
     </div>
     <script>
 

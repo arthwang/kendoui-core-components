@@ -1,1 +1,1 @@
-{"attachTag":"form","attrs":["error-template","messages","rules","validate-on-blur","validate","validate-input"],"compTag":"k-validator"}
+{"attachTag":"form","attrs":["error-template","messages","rules","validate-on-blur","validation-summary: boolean | validation-summary;","validate","validate-input"],"compTag":"k-validator"}

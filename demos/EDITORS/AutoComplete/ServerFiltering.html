@@ -9,14 +9,17 @@
         content='ie=edge'>
   <title></title>
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.min.css' />
   <link rel='stylesheet'
         href='/assets/examples.css' />
-  <script src="http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js"></script>
-  <script src="http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js"></script>
-  <script src="/out/kendo-core-components.js"></script>
+  <script
+          src="http://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js"></script>
+  <script
+          src="http://kendo.cdn.telerik.com/2020.2.617/js/kendo.ui.core.min.js"></script>
+  <script
+          src="/out/kendo-core-components.js"></script>
 </head>
 
 <body>
@@ -28,15 +31,17 @@
                        data-text-field="ProductName"
                        filter="contains"
                        data-source="{
-                         type:'odata',
-                         serverFiltering:true,
-                         transport:{
-                           read:'https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products'
-                          }
-                        }"
+                             type:'odata',
+                             serverFiltering:true,
+                             transport:{
+                               read:'https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products'
+                             }
+                           }"
                        min-length='3'
-                       style="width:100%"></k-auto-complete>
-      <div class="demo-hint">Hint: type "che"</div>
+                       style="width:100%">
+      </k-auto-complete>
+      <div class="demo-hint">Hint: type "che"
+      </div>
     </div>
   </div>
 </body>

@@ -1,6 +1,6 @@
 {
   "name": "kendoui-core-components",
-  "version": "0.1.20",
+  "version": "0.2.0",
   "description": "kendo ui core components",
   "keywords": [
     "kendo-ui",
@@ -21,16 +21,17 @@
     "watch": "tsc --watch",
     "clean": "rm -rf out",
     "start": "live-server",
-    "dist": "tsc; ./node_modules/.bin/uglifyjs out/kendo-core-components.js -o dist/kendo-core-components.min.js -c -m --toplevel"
+    "dist": "tsc; ./node_modules/.bin/terser out/kendo-core-components.js -o dist/kendo-core-components.min.js -c -m --toplevel"
   },
   "dependencies": {},
   "devDependencies": {
-    "@types/jquery": "^3.3.6",
-    "@types/kendo-ui": "^2018.3.0",
-    "@types/node": "^10.11.7",
+    "@types/jquery": "^3.5.1",
+    "@types/kendo-ui": "^2020.2.0",
+    "@types/node": "^14.10.2",
     "balanced-match": "^1.0.0",
-    "live-server": "^1.2.0",
-    "uglify-es": "^3.3.9"
+    "jquery": "^3.5.1",
+    "live-server": "^1.2.1",
+    "terser": "^5.3.1"
   },
   "repository": {
     "type": "git",

@@ -9,14 +9,17 @@
         content='ie=edge'>
   <title>Basic usage demo</title>
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.min.css' />
   <link rel='stylesheet'
         href='/assets/examples.css'>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
-  <script src='/out/kendo-core-components.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/kendo.ui.core.min.js'></script>
+  <script
+          src='/out/kendo-core-components.js'></script>
 </head>
 
 <body>
@@ -26,7 +29,8 @@
       <h4>Customize your Kendo Cap</h4>
       <div id="cap"
            class="black-cap"></div>
-      <h4><label for="color">Cap Color</label></h4>
+      <h4><label for="color">Cap Color</label>
+      </h4>
       <k-drop-down-list id="color"
                         value="1"
                         style="width: 100%;"
@@ -34,9 +38,11 @@
                         data-value-field="value"
                         data-source="data"
                         index=0
-                        change="onChange"></k-drop-down-list>
+                        change="onChange">
+      </k-drop-down-list>
 
-      <h4 style="margin-top: 2em;"><label for="size">Cap
+      <h4 style="margin-top: 2em;"><label
+               for="size">Cap
           Size</label></h4>
       <k-drop-down-list id="size"
                         style="width:100%">

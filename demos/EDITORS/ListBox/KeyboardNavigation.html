@@ -9,14 +9,17 @@
         content='ie=edge'>
   <title>Keyboard navigation demo</title>
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.min.css' />
   <link rel='stylesheet'
         href='/assets/examples.css'>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
-  <script src='/out/kendo-core-components.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/kendo.ui.core.min.js'></script>
+  <script
+          src='/out/kendo-core-components.js'></script>
 </head>
 
 <body>
@@ -27,14 +30,14 @@
                   data-text-field="ProductName"
                   data-value-field="ProductID"
                   data-source='{
-                      type: "odata",
-                      serverFiltering: true,
-                      transport: {
+                        type: "odata",
+                        serverFiltering: true,
+                        transport: {
                           read: {
-                              url:"https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products",
+                            url:"https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products",
                           }
-                      }
-                  }'
+                        }
+                      }'
                   selectable="multiple"
                   connect-with="'listbox2'"
                   navigatable=true></k-list-box>
@@ -51,7 +54,8 @@
         <ul class="keyboard-legend">
           <li>
             <span class="button-preview">
-              <span class="key-button wider">Alt</span>
+              <span
+                    class="key-button wider">Alt</span>
               +
               <span class="key-button">w</span>
             </span>
@@ -66,7 +70,8 @@
         <ul class="keyboard-legend">
           <li>
             <span class="button-preview">
-              <span class="key-button wider leftAlign">up
+              <span
+                    class="key-button wider leftAlign">up
                 arrow</span>
             </span>
             <span class="button-descr">
@@ -75,7 +80,8 @@
           </li>
           <li>
             <span class="button-preview">
-              <span class="key-button wider leftAlign">down
+              <span
+                    class="key-button wider leftAlign">down
                 arrow</span>
             </span>
             <span class="button-descr">
@@ -93,7 +99,8 @@
           <li>
             <span class="button-preview">
               <span class="key-button">ctrl</span>
-              <span class="key-button wider leftAlign">space</span>
+              <span
+                    class="key-button wider leftAlign">space</span>
             </span>
             <span class="button-descr">
               selects/deselects item
@@ -101,8 +108,10 @@
           </li>
           <li>
             <span class="button-preview">
-              <span class="key-button">shift</span>
-              <span class="key-button wider leftAlign">up
+              <span
+                    class="key-button">shift</span>
+              <span
+                    class="key-button wider leftAlign">up
                 arrow</span>
             </span>
             <span class="button-descr">
@@ -112,8 +121,10 @@
           </li>
           <li>
             <span class="button-preview">
-              <span class="key-button">shift</span>
-              <span class="key-button wider leftAlign">down
+              <span
+                    class="key-button">shift</span>
+              <span
+                    class="key-button wider leftAlign">down
                 arrow</span>
             </span>
             <span class="button-descr">
@@ -129,7 +140,8 @@
           <li>
             <span class="button-preview">
               <span class="key-button">ctrl</span>
-              <span class="key-button wider leftAlign">right
+              <span
+                    class="key-button wider leftAlign">right
                 arrow</span>
             </span>
             <span class="button-descr">
@@ -140,7 +152,8 @@
           <li>
             <span class="button-preview">
               <span class="key-button">ctrl</span>
-              <span class="key-button wider leftAlign">left
+              <span
+                    class="key-button wider leftAlign">left
                 arrow</span>
             </span>
             <span class="button-descr">
@@ -151,7 +164,8 @@
           <li>
             <span class="button-preview">
               <span class="key-button">ctrl</span>
-              <span class="key-button wider leftAlign">up
+              <span
+                    class="key-button wider leftAlign">up
                 arrow</span>
             </span>
             <span class="button-descr">
@@ -162,7 +176,8 @@
           <li>
             <span class="button-preview">
               <span class="key-button">ctrl</span>
-              <span class="key-button wider leftAlign">down
+              <span
+                    class="key-button wider leftAlign">down
                 arrow</span>
             </span>
             <span class="button-descr">
@@ -172,8 +187,10 @@
           <li>
             <span class="button-preview">
               <span class="key-button">ctrl</span>
-              <span class="key-button">shift</span>
-              <span class="key-button wider leftAlign">up
+              <span
+                    class="key-button">shift</span>
+              <span
+                    class="key-button wider leftAlign">up
                 arrow</span>
             </span>
             <span class="button-descr">
@@ -183,8 +200,10 @@
           <li>
             <span class="button-preview">
               <span class="key-button">ctrl</span>
-              <span class="key-button">shift</span>
-              <span class="key-button wider leftAlign">down
+              <span
+                    class="key-button">shift</span>
+              <span
+                    class="key-button wider leftAlign">down
                 arrow</span>
             </span>
             <span class="button-descr">
@@ -194,8 +213,10 @@
           <li>
             <span class="button-preview">
               <span class="key-button">ctrl</span>
-              <span class="key-button">shift</span>
-              <span class="key-button wider leftAlign">left
+              <span
+                    class="key-button">shift</span>
+              <span
+                    class="key-button wider leftAlign">left
                 arrow</span>
             </span>
             <span class="button-descr">
@@ -207,8 +228,10 @@
           <li>
             <span class="button-preview">
               <span class="key-button">ctrl</span>
-              <span class="key-button">shift</span>
-              <span class="key-button wider leftAlign">right
+              <span
+                    class="key-button">shift</span>
+              <span
+                    class="key-button wider leftAlign">right
                 arrow</span>
             </span>
             <span class="button-descr">

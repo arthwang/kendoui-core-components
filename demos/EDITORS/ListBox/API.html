@@ -9,14 +9,17 @@
         content='ie=edge'>
   <title>API demo</title>
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.min.css' />
   <link rel='stylesheet'
         href='/assets/examples.css'>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
-  <script src='/out/kendo-core-components.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/kendo.ui.core.min.js'></script>
+  <script
+          src='/out/kendo-core-components.js'></script>
 </head>
 
 <body>
@@ -28,14 +31,14 @@
                   data-value-field="ProductID"
                   connect-with="'listbox2'"
                   data-source='{
-                      type: "odata",
-                      serverPaging: true,
-                      transport: {
+                        type: "odata",
+                        serverPaging: true,
+                        transport: {
                           read: {
-                                url: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products",
-                                }
-                          },
-                      pageSize: 10
+                            url: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products",
+                          }
+                        },
+                        pageSize: 10
                       }'></k-list-box>
       <k-list-box id="listbox2"
                   data-text-field="ProductName"
@@ -46,7 +49,8 @@
     <k-notification id="staticNotification"
                     auto-hide-after=4000
                     append-to="#appendto"
-                    animation="{open:{effects:'fade:in'},close:{effects:'none'}}"></k-notification>
+                    animation="{open:{effects:'fade:in'},close:{effects:'none'}}">
+    </k-notification>
 
     <div class="box wide">
       <div class="box-col">
@@ -56,9 +60,11 @@
             <li>
               <h4>Transfer item</h4>
               <button id="transfer-right"
-                      class="k-button">To right</button>
+                      class="k-button">To
+                right</button>
               <button id="transfer-left"
-                      class="k-button">To left</button>
+                      class="k-button">To
+                left</button>
             </li>
           </ul>
         </div>
@@ -67,9 +73,11 @@
             <li>
               <h4>Move item</h4>
               <button id="move-up"
-                      class="k-button">Move Up</button>
+                      class="k-button">Move
+                Up</button>
               <button id="move-down"
-                      class="k-button">Move Down</button>
+                      class="k-button">Move
+                Down</button>
             </li>
 
           </ul>

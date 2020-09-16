@@ -1,5 +1,7 @@
 # Changelog
 
+## [0.2.0]
+* upgraded to 2020.2.0
 ## [0.1.20]
 * support nested kendo widgets in overriden functions
 ## [0.1.19]

@@ -9,15 +9,18 @@
         content='ie=edge'>
   <title>MVVM</title>
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.min.css' />
   <link rel='stylesheet'
         href='/assets/examples.css' />
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/kendo.ui.core.min.js'></script>
   <script src='/assets/console.js'></script>
-  <script src='/out/kendo-core-components.js'></script>
+  <script
+          src='/out/kendo-core-components.js'></script>
 </head>
 
 <body>
@@ -29,15 +32,16 @@
                          data-text-field="ProductName"
                          placeholder="Type a product e.g. 'Chai'"
                          data-bind="value: selectedProduct,
-                                source: products,
-                                visible: isVisible,
-                                enabled: isEnabled,
-                                events: {
-                                  change: onChange,
-                                  open: onOpen,
-                                  close: onClose
-                                }"
-                         style="width: 100%;"></k-auto-complete>
+                             source: products,
+                             visible: isVisible,
+                             enabled: isEnabled,
+                             events: {
+                               change: onChange,
+                               open: onOpen,
+                               close: onClose
+                             }"
+                         style="width: 100%;">
+        </k-auto-complete>
         <p class="demo-hint">
           <strong>data-value-primitive</strong>
           is
@@ -50,15 +54,16 @@
                          data-role='autocomplete'
                          placeholder="Type a product e.g. 'Chai'"
                          data-bind="value: selectedProduct,
-                                source: products,
-                                visible: isVisible,
-                                enabled: isEnabled,
-                                events: {
-                                  change: onChange,
-                                  open: onOpen,
-                                  close: onClose
-                                }"
-                         style="width: 100%;"></k-auto-complete>
+                             source: products,
+                             visible: isVisible,
+                             enabled: isEnabled,
+                             events: {
+                               change: onChange,
+                               open: onOpen,
+                               close: onClose
+                             }"
+                         style="width: 100%;">
+        </k-auto-complete>
         <p class="demo-hint">
           <strong>data-value-primitive</strong>
           is
@@ -78,24 +83,31 @@
         <ul>
           <li><label><input type="checkbox"
                      data-bind="checked: isPrimitive, events: { change: primitiveChanged }">Set
-              <strong>data-value-primitive</strong></label></li>
+              <strong>data-value-primitive</strong></label>
+          </li>
           <li><label><input type="checkbox"
                      data-bind="checked: isEnabled">Enable
               AutoComplete
             </label></li>
           <li><label><input type="checkbox"
-                     data-bind="checked: isVisible">Visible</label></li>
+                     data-bind="checked: isVisible">Visible</label>
+          </li>
         </ul>
       </div>
       <div class="box-col">
         <h4>Information</h4>
         Kendo UI AutoComplete supports the
-        <a href="http://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/enabled">enabled</a>,
-        <a href="http://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/events">events</a>,
-        <a href="http://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/source">source</a>,
-        <a href="http://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/value">value</a>
+        <a
+           href="http://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/enabled">enabled</a>,
+        <a
+           href="http://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/events">events</a>,
+        <a
+           href="http://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/source">source</a>,
+        <a
+           href="http://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/value">value</a>
         and
-        <a href="http://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/visible">visible</a>
+        <a
+           href="http://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/visible">visible</a>
         bindings.
       </div>
     </div>

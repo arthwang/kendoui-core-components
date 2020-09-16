@@ -9,14 +9,17 @@
         content='ie=edge'>
   <title>Templates demo</title>
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.min.css' />
   <link rel='stylesheet'
         href='/assets/examples.css'>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
-  <script src='/out/kendo-core-components.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/kendo.ui.core.min.js'></script>
+  <script
+          src='/out/kendo-core-components.js'></script>
 </head>
 
 <body>
@@ -28,24 +31,26 @@
                   data-value-field="CustomerID"
                   template="customerTemplate"
                   data-source='{
-                      transport: {
-                        read: {
-                          dataType: "jsonp",
-                          url: "https://demos.telerik.com/kendo-ui/service/Customers",
+                        transport: {
+                          read: {
+                            dataType: "jsonp",
+                            url: "https://demos.telerik.com/kendo-ui/service/Customers",
+                          }
                         }
-                      }
-                    }'
+                      }'
                   draggable="{placeholder:customPlaceholder"
                   drop-sources='["selected"]'
                   connect-with="'selected'"
-                  toolbar='{position:"right",tools:["moveUp", "moveDown", "transferTo", "transferFrom", "transferAllTo", "transferAllFrom", "remove"]}'></k-list-box>
+                  toolbar='{position:"right",tools:["moveUp", "moveDown", "transferTo", "transferFrom", "transferAllTo", "transferAllFrom", "remove"]}'>
+      </k-list-box>
       <k-list-box id="selected"
                   data-text-field="ContactName"
                   data-value-field="CustomerID"
                   template="customerTemplate"
                   draggable="{placeholder:customPlaceholer}"
                   drop-sources='["optional"]'
-                  connect-with="'optional'"></k-list-box>
+                  connect-with="'optional'">
+      </k-list-box>
     </div>
     <script>
       var customerTemplate = '<span class="k-state-default" style="background-image: url(\'https://demos.telerik.com/kendo-ui/content/web/Customers/#:data.CustomerID#.jpg\')"></span>' +

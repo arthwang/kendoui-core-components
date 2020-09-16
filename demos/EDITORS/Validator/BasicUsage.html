@@ -9,14 +9,17 @@
         content='ie=edge'>
   <title>Basic usage demo</title>
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.min.css' />
   <link rel='stylesheet'
         href='/assets/examples.css'>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
-  <script src='/out/kendo-core-components.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/kendo.ui.core.min.js'></script>
+  <script
+          src='/out/kendo-core-components.js'></script>
 </head>
 
 <body>
@@ -27,7 +30,8 @@
           <ul id="fieldlist">
             <li>
               <label for="fullname"
-                     class="required">Your Name</label>
+                     class="required">Your
+                Name</label>
               <input type="text"
                      id="fullname"
                      name="fullname"
@@ -47,7 +51,8 @@
                                validationMessage="Select movie"
                                data-source=data
                                separator=', '
-                               style="width: 220px;"></k-auto-complete>
+                               style="width: 220px;">
+              </k-auto-complete>
               <span class="k-invalid-msg"
                     data-for="search"></span>
             </li>
@@ -61,7 +66,8 @@
                             data-max-msg="Enter date after '5/6/2017''"
                             pattern="\d+\/\d+\/\d+"
                             validationMessage="Enter full date"
-                            style="width: 220px;"></k-date-input>
+                            style="width: 220px;">
+              </k-date-input>
               <span class="k-invalid-msg"
                     data-for="date"></span>
             </li>
@@ -91,7 +97,8 @@
                                   value="1"
                                   required
                                   data-max-msg="Enter value between 1 and 10"
-                                  style="width: 220px;"></k-numeric-text-box>
+                                  style="width: 220px;">
+              </k-numeric-text-box>
               <span class="k-invalid-msg"
                     data-for="Amount"></span>
             </li>
@@ -126,7 +133,8 @@
                      name="Accept"
                      required
                      validationmessage="Acceptance is required" />
-              <p>I accept the terms of service.</p>
+              <p>I accept the terms of service.
+              </p>
             </li>
             <li class="confirm">
               <button class="k-button k-primary"

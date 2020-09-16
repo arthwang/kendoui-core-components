@@ -1,1 +1,1 @@
-{"attachTag":"input","attrs":["clear-prompt-char","culture","mask","prompt-char","rules","unmask-on-post","value","change"],"compTag":"k-masked-text-box"}
+{"attachTag":"input","attrs":["clear-prompt-char","culture","label","mask","prompt-char","rules","unmask-on-post","value","change"],"compTag":"k-masked-text-box"}

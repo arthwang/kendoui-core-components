@@ -9,14 +9,17 @@
         content='ie=edge'>
   <title>Virtualization demo</title>
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.min.css' />
   <link rel='stylesheet'
         href='/assets/examples.css'>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
-  <script src='/out/kendo-core-components.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/kendo.ui.core.min.js'></script>
+  <script
+          src='/out/kendo-core-components.js'></script>
 </head>
 
 <body>
@@ -31,40 +34,40 @@
                         data-value-field="OrderID"
                         filter="contains"
                         virtual='{
-                          itemHeight: 26,
-                          valueMapper: function (options) {
-                            $.ajax({
-                              url: "https://demos.telerik.com/kendo-ui/service/Orders/ValueMapper",
-                              type: "GET",
-                              dataType: "jsonp",
-                              data: convertValues(options.value),
-                              success: function (data) {
-                                options.success(data);
+                              itemHeight: 26,
+                              valueMapper: function (options) {
+                                $.ajax({
+                                  url: "https://demos.telerik.com/kendo-ui/service/Orders/ValueMapper",
+                                  type: "GET",
+                                  dataType: "jsonp",
+                                  data: convertValues(options.value),
+                                  success: function (data) {
+                                    options.success(data);
+                                  }
+                                })
                               }
-                            })
-                          }
-                        }'
+                            }'
                         height=290
                         data-source='{
-                          type: "odata",
-                          transport: {
-                            read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Orders"
-                          },
-                          schema: {
-                            model: {
-                              fields: {
-                                OrderID: { type: "number" },
-                                Freight: { type: "number" },
-                                ShipName: { type: "string" },
-                                OrderDate: { type: "date" },
-                                ShipCity: { type: "string" }
-                              }
-                            }
-                          },
-                          pageSize: 80,
-                          serverPaging: true,
-                          serverFiltering: true
-                        }'></k-drop-down-list>
+                              type: "odata",
+                              transport: {
+                                read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Orders"
+                              },
+                              schema: {
+                                model: {
+                                  fields: {
+                                    OrderID: { type: "number" },
+                                    Freight: { type: "number" },
+                                    ShipName: { type: "string" },
+                                    OrderDate: { type: "date" },
+                                    ShipCity: { type: "string" }
+                                  }
+                                }
+                              },
+                              pageSize: 80,
+                              serverPaging: true,
+                              serverFiltering: true
+                            }'></k-drop-down-list>
       <script>
         function convertValues(value) {
           var data = {};

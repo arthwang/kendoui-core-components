@@ -9,35 +9,38 @@
         content='ie=edge'>
   <title>Basic usage demo</title>
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.mobile.min.css' />
   <link rel='stylesheet'
         href='/assets/examples.css'>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
-  <script src='/out/kendo-core-components.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/kendo.ui.core.min.js'></script>
+  <script
+          src='/out/kendo-core-components.js'></script>
 </head>
 
 <body>
   <div id="example">
     <k-splitter orientation='vertical'
                 panes='[
-                {collapsible:false},
-                {collapsible:false,
-                  size:"100px"},
-                {collapsible:false,
-                  resizable:false,
-                  size:"100px"}]'>
+                      {collapsible:false},
+                      {collapsible:false,
+                      size:"100px"},
+                      {collapsible:false,
+                      resizable:false,
+                      size:"100px"}]'>
       <div id="top-pane">
         <k-splitter id="horizontal"
                     style="height: 100%; width: 100%;"
                     panes='[
-                    {collapsible:true},
-                    {collapsible:false},
-                    {collapsible:true}]'>
+                          {collapsible:true},
+                          {collapsible:false},
+                          {collapsible:true}]'>
           <div id="left-pane">
             <div class="pane-content">
               <h3>Inner splitter / left pane</h3>
@@ -46,7 +49,8 @@
           </div>
           <div id="center-pane">
             <div class="pane-content">
-              <h3>Inner splitter / center pane</h3>
+              <h3>Inner splitter / center pane
+              </h3>
               <p>Resizable only.</p>
             </div>
           </div>
@@ -67,7 +71,8 @@
       <div id="bottom-pane">
         <div class="pane-content">
           <h3>Outer splitter / bottom pane</h3>
-          <p>Non-resizable and non-collapsible.</p>
+          <p>Non-resizable and non-collapsible.
+          </p>
         </div>
       </div>
     </k-splitter>

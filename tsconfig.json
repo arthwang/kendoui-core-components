@@ -11,7 +11,11 @@
     ],
     "moduleResolution": "node",
     "module": "esnext",
-    "target": "es2015",
+    "target": "es2016",
+    "types": [
+      "node",
+      "jquery"
+    ]
   },
   "include": [
     "src"

@@ -9,16 +9,19 @@
         content='ie=edge'>
   <title>Basic usage demo</title>
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.mobile.min.css' />
   <link rel='stylesheet'
         href='/assets/examples.css'>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
-  <script src='/out/kendo-core-components.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/kendo.ui.core.min.js'></script>
+  <script
+          src='/out/kendo-core-components.js'></script>
 </head>
 
 <body>
@@ -42,7 +45,12 @@
         { type: "separator" },
         { template: "<label for='dropdown'>Format:</label>" },
         {
-          template: "<k-drop-down-list option-label='Paragraph' data-text-field='text' data-value-field='value' data-source='dataSource' id='dropdown' style='width: 150px;'></k-drop-down-list>",
+          template: "<k-drop-down-list option-label='Paragraph'
+                                       data-text-field='text'
+                                       data-value-field='value'
+                                       data-source='dataSource'
+                                       id='dropdown'
+                                       style='width: 150px;'></k-drop-down-list>",
           overflow: "never"
         },
         { type: "separator" },

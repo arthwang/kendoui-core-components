@@ -9,39 +9,42 @@
         content='ie=edge'>
   <title>Integration with list view</title>
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.mobile.min.css' />
   <link rel='stylesheet'
         href='/assets/examples.css'>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
-  <script src='/out/kendo-core-components.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/kendo.ui.core.min.js'></script>
+  <script
+          src='/out/kendo-core-components.js'></script>
 </head>
 
 <body>
   <div id="example">
-    <script src="https://demos.telerik.com/kendo-ui/content/shared/js/products.js"></script>
+    <script
+            src="https://demos.telerik.com/kendo-ui/content/shared/js/products.js"></script>
     <k-sortable filter='div.product'
                 cursor='move'
                 placeholder='function (element) {
-                        return element.clone().css("opacity", 0.1);
-                      }'
+                      return element.clone().css("opacity", 0.1);
+                    }'
                 hint='function (element) {
-                        return element.clone().removeClass("k-state-selected");
-                      }'
+                      return element.clone().removeClass("k-state-selected");
+                    }'
                 change='function (e) {
-                        var skip = dataSource.skip(),
-                          oldIndex = e.oldIndex + skip,
-                          newIndex = e.newIndex + skip,
-                          data = dataSource.data(),
-                          dataItem = dataSource.getByUid(e.item.data("uid"));
-
-                        dataSource.remove(dataItem);
-                        dataSource.insert(newIndex, dataItem);
-                      }'>
+                      var skip = dataSource.skip(),
+                      oldIndex = e.oldIndex + skip,
+                      newIndex = e.newIndex + skip,
+                      data = dataSource.data(),
+                      dataItem = dataSource.getByUid(e.item.data("uid"));
+                      dataSource.remove(dataItem);
+                      dataSource.insert(newIndex, dataItem);
+                    }'>
       <k-list-view d="listView"
                    data-source=dataSource
                    template='template'>

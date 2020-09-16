@@ -9,16 +9,19 @@
         content='ie=edge'>
   <title>Animation effects demo</title>
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.mobile.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.mobile.min.css' />
   <link rel='stylesheet'
         href='/assets/examples.css'>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
-  <script src='/out/kendo-core-components.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/kendo.ui.core.min.js'></script>
+  <script
+          src='/out/kendo-core-components.js'></script>
 </head>
 
 <body>
@@ -40,20 +43,23 @@
         <li>
           <input id="toggle"
                  name="animation"
-                 type="radio" /> <label for="toggle">toggle
+                 type="radio" /> <label
+                 for="toggle">toggle
             animation</label>
         </li>
         <li>
           <input id="expand"
                  name="animation"
                  type="radio"
-                 checked="checked" /> <label for="expand">expand
+                 checked="checked" /> <label
+                 for="expand">expand
             animation</label>
         </li>
         <li>
           <input id="opacity"
                  type="checkbox"
-                 checked="checked" /> <label for="opacity">animate
+                 checked="checked" /> <label
+                 for="opacity">animate
             opacity</label>
         </li>
       </ul>
@@ -166,7 +172,11 @@
         $(".options input").change(function () {
           const index = tabstrip.select().index();
           $('#tabstrip').remove();
-          $('<k-tab-strip id="tabstrip" data-text-field="text" data-content-field="content" data-source=dataSource animation="{open:{effects:getEffects()}}"></k-tab-strip>').appendTo("#tsContainer");
+          $('<k-tab-strip id="tabstrip"
+                          data-text-field="text"
+                          data-content-field="content"
+                          data-source=dataSource
+                          animation="{open:{effects:getEffects()}}"></k-tab-strip>').appendTo("#tsContainer");
 
           tabstrip = $('#tabstrip').data('kendoTabStrip');
           tabstrip.select(index);

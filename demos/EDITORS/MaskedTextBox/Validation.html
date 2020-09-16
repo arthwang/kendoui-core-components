@@ -9,14 +9,17 @@
         content='ie=edge'>
   <title>Validation demo</title>
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css' />
   <link rel='stylesheet'
-        href='http://kendo.cdn.telerik.com/2018.3.911/styles/kendo.default.min.css' />
+        href='http://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.min.css' />
   <link rel='stylesheet'
         href='/assets/examples.css'>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/jquery.min.js'></script>
-  <script src='http://kendo.cdn.telerik.com/2018.3.911/js/kendo.ui.core.min.js'></script>
-  <script src='/out/kendo-core-components.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js'></script>
+  <script
+          src='http://kendo.cdn.telerik.com/2020.2.617/js/kendo.ui.core.min.js'></script>
+  <script
+          src='/out/kendo-core-components.js'></script>
 </head>
 
 <body>
@@ -25,17 +28,18 @@
       <k-validator id="employeeForm"
                    novalidate="novalidate"
                    rules='{
-                     validmask: function (input) {
-                       if (input.is("[data-validmask-msg]") && input.val() != "") {
-                         let maskedtextbox = input.data("kendoMaskedTextBox");
-                         return maskedtextbox.value().indexOf(maskedtextbox.options.promptChar) === -1
-                       }
-                       return true;
-                     }
-                    }'>
+                         validmask: function (input) {
+                           if (input.is("[data-validmask-msg]") && input.val() != "") {
+                             let maskedtextbox = input.data("kendoMaskedTextBox");
+                             return maskedtextbox.value().indexOf(maskedtextbox.options.promptChar) === -1
+                           }
+                           return true;
+                         }
+                       }'>
         <ul id="fieldlist">
           <li>
-            <label for="FirstName">First Name:</label>
+            <label for="FirstName">First
+              Name:</label>
             <input type="text"
                    class="k-textbox"
                    name="FirstName"
@@ -43,7 +47,8 @@
                    required="required" />
           </li>
           <li>
-            <label for="LastName">Last Name:</label>
+            <label for="LastName">Last
+              Name:</label>
             <input type="text"
                    class="k-textbox"
                    name="LastName"
@@ -58,7 +63,8 @@
                                name="PhoneNumber"
                                data-validmask-msg="Phone number is incomplete"
                                required="required"
-                               style="width: 100%"></k-masked-text-box>
+                               style="width: 100%">
+            </k-masked-text-box>
             <span data-for='PhoneNumber'
                   class='k-invalid-msg'></span>
           </li>
@@ -66,11 +72,11 @@
             <k-button type='button'
                       icon="check"
                       click='function (e) {
-                          let validator = $("#employeeForm").data("kendoValidator");
-                          if (validator.validate()) {
-                            alert("Employee Saved");
-                          }
-                        }'>Save</k-button>
+                            let validator = $("#employeeForm").data("kendoValidator");
+                            if (validator.validate()) {
+                              alert("Employee Saved");
+                            }
+                          }'>Save</k-button>
           </li>
         </ul>
       </k-validator>
